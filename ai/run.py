@@ -1,6 +1,6 @@
+import csv
 import sys
 from pathlib import Path
-import csv
 
 
 def _ensure_path_on_sys_path() -> None:
@@ -12,12 +12,13 @@ def _ensure_path_on_sys_path() -> None:
 
 _ensure_path_on_sys_path()
 
-from config import Config  # noqa: E402
-from swarm import Orchestrator  # noqa: E402
-from agents.scoring_agent import ScoringAgent  # noqa: E402
 from agents.market_agent import MarketAgent  # noqa: E402
 from agents.risk_agent import RiskAgent  # noqa: E402
+from agents.scoring_agent import ScoringAgent  # noqa: E402
 from agents.trader_agent import TraderAgent  # noqa: E402
+from swarm import Orchestrator  # noqa: E402
+
+from config import Config  # noqa: E402
 
 
 def _maybe_seed_csv(cfg: Config) -> None:
@@ -109,8 +110,8 @@ def main() -> None:
 
     # Persist forensic run log
     try:
-        from datetime import datetime
         import json
+        from datetime import datetime
 
         base_dir = Path(__file__).resolve().parent
         runs_dir = base_dir.parent / "output" / "ai_runs"

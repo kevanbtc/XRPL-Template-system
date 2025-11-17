@@ -1,7 +1,7 @@
-import csv
-from pathlib import Path
 import argparse
+import csv
 from datetime import datetime
+from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 OUTPUT_DIR = ROOT / "output"

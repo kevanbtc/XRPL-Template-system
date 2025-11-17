@@ -1,7 +1,8 @@
-from typing import Optional, Dict, Any, List
+from typing import Any, Dict, List, Optional
+
+from swarm import Agent, Message
 
 from config import Config
-from swarm import Agent, Message
 
 
 class MarketAgent(Agent):

@@ -5,7 +5,6 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Iterable, List
 
-
 BUCKET_ORDER = ["Immediate", "Near-Term", "Medium", "Long-Term", "Reject"]
 
 

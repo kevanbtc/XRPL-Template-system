@@ -1,7 +1,6 @@
-﻿from pathlib import Path
+﻿import os
 import sys
-import os
-
+from pathlib import Path
 
 # Ensure ai/src is importable like ai/run.py does
 ROOT = Path(__file__).resolve().parents[1]
