@@ -1,35 +1,17 @@
-# General
-.DS_Store
-Thumbs.db
-*.log
-__pycache__/
-.pytest_cache/
-.venv/
-venv/
-.env
-
-# AI run logs (forensic outputs not committed by default)
-output/ai_runs/*.json# Python cache
+﻿# Python
 __pycache__/
 *.py[cod]
 *.pyo
 *.pyd
-
-# Virtual environments
+.pytest_cache/
 .venv/
-venv/
 .env
 
-# Editors/OS
-.vscode/
-.idea/
+# OS/editor
 .DS_Store
-Thumbs.db
+.vscode/
 
-# Notebook checkpoints
-.ipynb_checkpoints/
-
-# Build artifacts
-build/
-dist/
-*.egg-info/
+# Project outputs
+output/ai_runs/*.json
+output/ai_runs/*.ndjson
+output/*.log
