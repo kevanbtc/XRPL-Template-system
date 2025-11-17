@@ -209,3 +209,38 @@ These snapshots form the audit trail that shows:
 
 ## AI Swarm Integration (Policy-Driven)
 
+
+> This repo includes a policy-driven AI swarm that consumes your scoring CSV and proposes dry-run trades for review.
+
+- Policy file: i/config/ai_policy.yaml (risk, liquidity, swarm)
+- Runtime loader: i/src/config.py (graceful defaults if YAML missing)
+- Runner: i/run.py (dry-run only; no live orders)
+- Forensic logs: output/ai_runs/ai_run_*.json (audit-ready per-run trail)
+
+### Contract
+- Input: docs/scoring/Assets.current.md and the underlying CSV produced by scripts/asset_scoring.py.
+- Output: Markdown console summary + JSON forensic log with all decisions.
+- Gates: Allowed buckets, min score, min net bps, max trades, position/portfolio caps.
+
+### How to run (local)
+- Python 3.11+; optional PyYAML for policy loading (falls back to defaults if not installed).
+- Execute python ai/run.py to simulate a policy-aligned dry-run and write a forensic log.
+
+### Safety & Legal
+- Dry-run only; no exchange/CEX/XRPL adapters are wired.
+- All thresholds are policy-governed and versioned. Logs are immutable artifacts for audits.
+
+## Weekly Cadence (Extended)
+
+Use this to institutionalize the flow from intake  scoring  focus  sprint  AI dry-run planning  review:
+
+1) Intake: Capture assets using docs/templates/scoring/AssetIntake.template.md.
+2) Score: Run scripts/asset_scoring.py and regenerate the grouped index via scripts/generate_assets_index.py.
+3) Focus: Curate AssetLiquidityFocus.template.md using the latest buckets (Immediate/Near-Term/Mid-Term).
+4) Sprint: Plan execution in LiquiditySprintBoard.template.md (48h window).
+5) AI Dry-Run: python ai/run.py to produce a plan and an audit log.
+6) Review Board: Approve or reject dry-run proposals; update RejectLog.template.md with reasons.
+7) Snapshot: Commit docs/scoring/Assets.current.md and store a dated copy under history/ for traceability.
+8) Iterate: Tune i/config/ai_policy.yaml only via PR and review.
+
+Tip: The AI runner will ignore 'Reject' bucket assets and enforce min net bps and score gates to filter noise.
