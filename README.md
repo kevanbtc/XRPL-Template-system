@@ -223,3 +223,7 @@ Issues and PRs are welcome. See `CONTRIBUTING.md`.
 - Auditors / Compliance: to verify that liquidity decisions follow a documented, repeatable process.
 
 For day‑to‑day operations, see `docs/scoring/README.md`. This repository is policy‑driven and dry‑run by default; all real execution remains gated by human approval and on‑ledger checks.
+
+## Security Plan (External)
+
+- A comprehensive security plan is maintained in the companion repository: ../fth-xrpl-financial-os/docs/security/README.md. Integrate relevant procedures into this repo's operations as needed.
