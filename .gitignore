@@ -1,15 +1,66 @@
-﻿# Python
+# Python
 __pycache__/
 *.py[cod]
+*$py.class
 *.pyo
 *.pyd
+*.so
+.Python
 .pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+*.cover
+*.log
+.tox/
 .venv/
+venv/
+ENV/
+env/
 .env
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+.installed.cfg
+*.manifest
+*.spec
+
+# Testing
+.hypothesis/
+.pytest_cache/
+nosetests.xml
+coverage.xml
+*.cover
+.cache
+
+# Type checking
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyre/
+.pytype/
 
 # OS/editor
 .DS_Store
 .vscode/
+.idea/
+*.swp
+*.swo
+*~
+.AppleDouble
+.LSOverride
+Thumbs.db
 
 # Project outputs
 output/ai_runs/*.json

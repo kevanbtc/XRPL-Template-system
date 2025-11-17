@@ -33,14 +33,32 @@ jobs:
           if [ -f requirements.txt ]; then
             pip install -r requirements.txt
           fi
-          # Ensure pytest present
-          pip install pytest
+          # Ensure pytest and linting tools present
+          pip install pytest black isort flake8
           # Pre-commit for linting if configured
           pip install pre-commit
 
       - name: Run tests
         run: |
           if [ -d tests ]; then pytest -q; else echo "No tests directory found"; fi
+
+      - name: Run linting (flake8)
+        run: |
+          echo "Running flake8 linter..."
+          flake8 ai/ scripts/ tests/ --exclude=ai/src/tools/scoring_reader.py --count --select=E9,F63,F7,F82 --show-source --statistics
+          flake8 ai/ scripts/ tests/ --exclude=ai/src/tools/scoring_reader.py --count --max-line-length=88 --statistics
+
+      - name: Check formatting (black)
+        continue-on-error: true
+        run: |
+          echo "Checking code formatting with black..."
+          black --check ai/ scripts/ tests/ || echo "⚠️  Some files need formatting. Run 'black ai/ scripts/ tests/' locally."
+
+      - name: Check import sorting (isort)
+        continue-on-error: true
+        run: |
+          echo "Checking import sorting with isort..."
+          isort --check-only ai/ scripts/ tests/ || echo "⚠️  Some imports need sorting. Run 'isort ai/ scripts/ tests/' locally."
 
       - name: Run pre-commit (if configured)
         run: |
