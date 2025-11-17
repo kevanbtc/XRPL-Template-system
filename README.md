@@ -1,9 +1,11 @@
 # XRPL-Template-system
 
 [![CI](https://github.com/kevanbtc/XRPL-Template-system/actions/workflows/ci.yml/badge.svg)](https://github.com/kevanbtc/XRPL-Template-system/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![Built with Python](https://img.shields.io/badge/Python-3.11+-3776AB?logo=python&logoColor=white)
 ![Policy‑Driven](https://img.shields.io/badge/AI-Policy--driven-blueviolet)
 ![Dry‑Run Only](https://img.shields.io/badge/Execution-Dry--Run--Only-orange)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 Institutional‑grade liquidity scoring, policy‑driven AI swarm (dry‑run), and security docs for operating as a sovereign rails operator on XRPL.
 
@@ -230,7 +232,13 @@ python scripts/generate_assets_index.py \
 
 ## Contributing
 
-Issues and PRs are welcome. See `CONTRIBUTING.md`.
+Issues and PRs are welcome. See `CONTRIBUTING.md` for development setup and guidelines.
+
+This project follows the [Contributor Covenant Code of Conduct](CODE_OF_CONDUCT.md).
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Security & Compliance
 
