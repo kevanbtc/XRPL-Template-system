@@ -1,11 +1,11 @@
 # Ruby Vault I – Three-Layer Hide-Yet-Prove Architecture
 
-**Document Version:** 1.0  
-**Last Updated:** 2025-11-16  
-**Asset:** Natural Corundum Ruby Collection  
-**Appraiser:** HDG Appraisal Group (Oct 2, 2021, San Diego, CA)  
-**Appraised TRV:** $376,753,275 USD  
-**SPV:** Ruby Vault I, LLC  
+**Document Version:** 1.0
+**Last Updated:** 2025-11-16
+**Asset:** Natural Corundum Ruby Collection
+**Appraiser:** HDG Appraisal Group (Oct 2, 2021, San Diego, CA)
+**Appraised TRV:** $376,753,275 USD
+**SPV:** Ruby Vault I, LLC
 **Vault ID:** `RUBY-HDGR-2021-001`
 
 ---
@@ -181,20 +181,20 @@ ipfs add ruby-vault-i-docs.tar.gz.asc
   "appraiser_location": "San Diego, CA",
   "appraisal_date": "2021-10-02",
   "appraised_trv_usd": 376753275,
-  
+
   "haircut_policy": {
     "reason": "Illiquidity, authenticity risk, enforcement complexity",
     "haircut_pct": 80,
     "eligible_collateral_usd": 75350655,
     "policy_date": "2025-11-16"
   },
-  
+
   "ltv_policy": {
     "max_ltv_pct": 40,
     "max_facility_usd": 30140262,
     "rationale": "Conservative lending against exotic collateral"
   },
-  
+
   "spv": {
     "entity_name": "Ruby Vault I, LLC",
     "jurisdiction": "Delaware",
@@ -202,14 +202,14 @@ ipfs add ruby-vault-i-docs.tar.gz.asc
     "manager": "Unykorn Real Assets Management, LLC",
     "purpose": "Hold monetization rights + security interest in ruby collection"
   },
-  
+
   "custody": {
     "vault_company": "[Name]",
     "vault_location": "[City, State/Country]",
     "inventory_receipt_date": "[DATE]",
     "access_control": "Dual-signature required for withdrawal"
   },
-  
+
   "insurance": {
     "insurer": "Lloyds of London",
     "policy_number": "[POLICY#]",
@@ -218,7 +218,7 @@ ipfs add ruby-vault-i-docs.tar.gz.asc
     "loss_payee": "Lenders per Credit Agreement",
     "policy_term": "2025-11-15 to 2026-11-15"
   },
-  
+
   "legal_rights": {
     "original_owner": "I.B.E. International Business Enterprise Inc.",
     "monetization_rights_holder": "FollowMe Global Business Solutions LLC",
@@ -229,7 +229,7 @@ ipfs add ruby-vault-i-docs.tar.gz.asc
     "security_interest": "First-priority lien in favor of Lenders",
     "ucc_filing": "[UCC filing number + date]"
   },
-  
+
   "documentation": {
     "ipfs_bundle_cid": "QmRubyVaultIDocs20251116abcdef...",
     "ipfs_signature_cid": "QmRubyVaultIDocsSig20251116xyz...",
@@ -237,7 +237,7 @@ ipfs add ruby-vault-i-docs.tar.gz.asc
     "document_count": 15,
     "last_updated": "2025-11-16"
   },
-  
+
   "risk_assessment": {
     "risk_tier": "Tier-2-RWA",
     "liquidity_score": 2.5,
@@ -247,7 +247,7 @@ ipfs add ruby-vault-i-docs.tar.gz.asc
     "overall_risk": "Medium-High",
     "notes": "High value but illiquid; requires specialist buyer; legal structure clean"
   },
-  
+
   "facility_status": {
     "current_outstanding": 0,
     "max_approved": 30140262,
@@ -523,16 +523,16 @@ for i in range(1, 301):
         "issuer": "Ruby Vault I, LLC",
         "issue_date": "2025-11-16"
     }
-    
+
     bond_nft_tx = NFTokenMint(
         account=BOND_ISSUER_ACCOUNT,
         nftoken_taxon=2,  # Taxon 2 = Bonds
         uri=xrpl.utils.str_to_hex(json.dumps(bond_metadata))
     )
-    
+
     response = submit_and_wait(bond_nft_tx, public_client, issuer_wallet)
     bond_nft_id = response.result['meta']['nftoken_id']
-    
+
     # Store in database
     db.bonds.insert({
         "bond_number": i,
@@ -593,7 +593,7 @@ for bond in db.bonds.find({"status": "active"}):
         }]
     )
     submit_and_wait(redemption_tx, public_client, ruby_reserve_wallet)
-    
+
     # Mark bond as redeemed
     db.bonds.update_one(
         {"_id": bond["_id"]},
@@ -620,13 +620,13 @@ for i in range(1, 11):
         "maturity": "2028-11-16",
         "ipfs_docs": "QmRubyCertDocs..."
     }
-    
+
     cert_nft_tx = NFTokenMint(
         account=CERT_ISSUER_ACCOUNT,
         nftoken_taxon=3,  # Taxon 3 = Certificates
         uri=xrpl.utils.str_to_hex(json.dumps(cert_metadata))
     )
-    
+
     submit_and_wait(cert_nft_tx, public_client, issuer_wallet)
 ```
 
@@ -754,12 +754,12 @@ template PortfolioProof() {
     signal input haircut_pcts[100];  // Private
     signal output total_collateral;  // Public
     signal output threshold_met;     // Public
-    
+
     var sum = 0;
     for (var i = 0; i < 100; i++) {
         sum += vault_values[i] * (1 - haircut_pcts[i]);
     }
-    
+
     total_collateral <== sum;
     threshold_met <== (sum >= 150000000) ? 1 : 0;
 }
@@ -1142,9 +1142,9 @@ This three-layer architecture enables you to:
 
 **Result:**
 
-✅ **Retail investors** see: "Bonds backed by stablecoins (easy to verify)"  
-✅ **Sophisticated investors** see: "Stablecoins backed by insured ruby collection (full audit trail)"  
-✅ **Regulators** see: "Three-layer risk management with immutable records"  
+✅ **Retail investors** see: "Bonds backed by stablecoins (easy to verify)"
+✅ **Sophisticated investors** see: "Stablecoins backed by insured ruby collection (full audit trail)"
+✅ **Regulators** see: "Three-layer risk management with immutable records"
 ✅ **You** control: All layers, all flows, all disclosures
 
 This is **hide-yet-prove** in action:

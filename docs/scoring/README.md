@@ -1,7 +1,7 @@
 # Asset Liquidity Scoring
 
 Compute composite scores to prioritize assets that convert to cash the fastest with strong LTV and real market depth.
- 
+
 ## Overview
 
 This doc explains how to run the RWA Liquidity Scoring Engine, interpret outputs, and turn them into a concrete 7–14 day cash plan.

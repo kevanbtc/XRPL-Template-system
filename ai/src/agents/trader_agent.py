@@ -1,7 +1,8 @@
-from typing import Optional, Dict, Any, List
+from typing import Any, Dict, List, Optional
+
+from swarm import Agent, Message
 
 from config import Config
-from swarm import Agent, Message
 
 
 class TraderAgent(Agent):
@@ -34,9 +35,18 @@ class TraderAgent(Agent):
                     "size_usd": round(size, 2),
                     "expected_net_bps": o["net_bps"],
                     "expected_profit_usd": round(size * o["net_bps"] / 10_000.0, 2),
-                    "notes": f"Dry-run: {o['direction']} exploiting ~{o['net_bps']}bps after fees",
+                    "notes": (
+                        f"Dry-run: {o['direction']} exploiting "
+                        f"~{o['net_bps']}bps after fees"
+                    ),
                 }
             )
         state["trade_planned"] = True
         state["trade_plan"] = plan
-        return Message(self.name, {"trades": len(plan), "allocated_usd": self.cfg.max_portfolio_usd - remaining})
+        return Message(
+            self.name,
+            {
+                "trades": len(plan),
+                "allocated_usd": self.cfg.max_portfolio_usd - remaining,
+            },
+        )

@@ -1,7 +1,9 @@
-from typing import Optional, Dict, Any
-from tools.scoring_reader_clean import read_scores, top_assets, BUCKET_ORDER
-from config import Config
+from typing import Any, Dict, Optional
+
 from swarm import Agent, Message
+from tools.scoring_reader_clean import BUCKET_ORDER, read_scores, top_assets
+
+from config import Config
 
 
 class ScoringAgent(Agent):
@@ -14,7 +16,8 @@ class ScoringAgent(Agent):
         if state.get("scoring_loaded"):
             return None
         rows = read_scores(self.cfg.output_scores_csv)
-        # Determine min_bucket that includes all allowed buckets (e.g., Immediate + Near-Term -> min_bucket Near-Term)
+        # Determine min_bucket that includes all allowed buckets
+        # (e.g., Immediate + Near-Term -> min_bucket Near-Term)
         allowed = set(self.cfg.allowed_buckets)
         order = [b for b in BUCKET_ORDER if b in allowed]
         min_bucket = order[-1] if order else self.cfg.min_bucket

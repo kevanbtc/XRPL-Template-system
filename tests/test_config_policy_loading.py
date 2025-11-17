@@ -1,7 +1,6 @@
-﻿from pathlib import Path
+﻿import os
 import sys
-import os
-
+from pathlib import Path
 
 # Ensure ai/src is importable like ai/run.py does
 ROOT = Path(__file__).resolve().parents[1]
@@ -9,7 +8,7 @@ AI_SRC = ROOT / "ai" / "src"
 if str(AI_SRC) not in sys.path:
     sys.path.insert(0, str(AI_SRC))
 
-from config import Config  # type: ignore
+from config import Config  # type: ignore  # noqa: E402
 
 
 def test_policy_loading_from_config_dir():

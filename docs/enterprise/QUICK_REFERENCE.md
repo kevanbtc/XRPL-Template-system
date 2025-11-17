@@ -25,18 +25,18 @@ Modern side:
 ## Who Gives You Money?
 
 ### 1. Private Credit Funds
-**They lend:** $1M-$50M per deal  
-**They want:** 10-14% yield, senior secured position, verified collateral  
+**They lend:** $1M-$50M per deal
+**They want:** 10-14% yield, senior secured position, verified collateral
 **They plug in:** Wire fiat → SPV bank account
 
 ### 2. Family Offices & HNW
-**They invest:** $100K-$5M per position  
-**They want:** Safe yield (8-12%), transparency, real assets  
+**They invest:** $100K-$5M per position
+**They want:** Safe yield (8-12%), transparency, real assets
 **They plug in:** Subscription agreement + wire
 
 ### 3. OTC Desks & Brokers
-**They bring:** Other people's money (placement agents)  
-**They want:** Clean products they can sell fast  
+**They bring:** Other people's money (placement agents)
+**They want:** Clean products they can sell fast
 **They earn:** 0.5-2% placement fees
 
 ---
@@ -71,7 +71,7 @@ Custodian statements → VaultProof → Dashboard
 **Off-ramps (crypto → fiat):**
 - Same providers, reverse flow
 
-**Use case:**  
+**Use case:**
 Investor wires USD → gateway → SPV account → your system records subscription
 
 ---
@@ -104,7 +104,7 @@ All payments logged on XRPL (live proof)
 
 ## Why Your XRPL Nodes Matter
 
-**Most platforms:** Trust third-party RPC (can be manipulated)  
+**Most platforms:** Trust third-party RPC (can be manipulated)
 **You:** Run your own 3-node mainnet fleet
 
 **What this gives investors:**
@@ -140,7 +140,7 @@ Choose: credit line, term loan, bridge, revenue-share, pre-sale
 - Lithium: 25-50%
 
 ### Step 5: Issue IOU on XRPL
-Mint: "UNYK-LEND.IOU" or "ASSET-CREDIT.IOU"  
+Mint: "UNYK-LEND.IOU" or "ASSET-CREDIT.IOU"
 Backed 1:1 by collateral in SPV
 
 ### Step 6: Fund the Loan
@@ -157,21 +157,21 @@ Sources: your treasury, stablecoin liquidity, investors, OTC partners
 ## Three Fastest Paths to Credibility + Cash
 
 ### 1. Real Estate Credit Notes
-**Why:** Everyone understands buildings  
-**LTV:** 50-70%  
-**Yield:** 10-12%  
+**Why:** Everyone understands buildings
+**LTV:** 50-70%
+**Yield:** 10-12%
 **Speed:** 2-3 weeks from handshake to funded
 
 ### 2. T-Bill Backed Stablecoin
-**Why:** Safe, liquid, institutional-grade  
-**LTV:** 80-95%  
-**Spread:** 1.5-2% (you keep the spread)  
+**Why:** Safe, liquid, institutional-grade
+**LTV:** 80-95%
+**Spread:** 1.5-2% (you keep the spread)
 **Speed:** Same-day funding
 
 ### 3. Gold Yield Notes
-**Why:** Sexy + solid collateral  
-**LTV:** 60-75%  
-**Yield:** 12-14%  
+**Why:** Sexy + solid collateral
+**LTV:** 60-75%
+**Yield:** 12-14%
 **Speed:** 24-72 hours
 
 ---
@@ -206,16 +206,16 @@ Sources: your treasury, stablecoin liquidity, investors, OTC partners
 
 ## Red Flags You Avoid
 
-❌ **"Trust our dashboard"** — Anyone can fake a website  
+❌ **"Trust our dashboard"** — Anyone can fake a website
 ✅ **"Verify on-chain"** — XRPL ledger is immutable
 
-❌ **"We hold the collateral"** — Operator can abscond  
+❌ **"We hold the collateral"** — Operator can abscond
 ✅ **"Custodian holds collateral"** — Third-party verification
 
-❌ **"Quarterly reports"** — Stale data, easy to manipulate  
+❌ **"Quarterly reports"** — Stale data, easy to manipulate
 ✅ **"Live ledger"** — Real-time, tamper-proof
 
-❌ **"DeFi yields"** — Anonymous, regulatory risk  
+❌ **"DeFi yields"** — Anonymous, regulatory risk
 ✅ **"Asset-backed notes"** — Real collateral, legal agreements
 
 ---
@@ -229,21 +229,21 @@ Sources: your treasury, stablecoin liquidity, investors, OTC partners
 3. **Faster execution** (4-8 weeks vs 6-12 months)
 4. **Cleaner visibility** (dashboards + API access)
 
-**You're not asking them to trust crypto.**  
+**You're not asking them to trust crypto.**
 **You're offering normal deals with better rails.**
 
 ---
 
 ## Next Steps
 
-**For clients:** See `ASSET_LTV_MATRIX.md` (25 asset types you can accept)  
-**For operations:** See `RWA_OPERATIONS_MANUAL.md` (full workflows)  
+**For clients:** See `ASSET_LTV_MATRIX.md` (25 asset types you can accept)
+**For operations:** See `RWA_OPERATIONS_MANUAL.md` (full workflows)
 **For investors:** See `LENDER_ONE_PAGER.md` (what they get, how they invest)
 
-**For legal setup:** See `SPV_TEMPLATES/` (formation docs, operating agreements)  
+**For legal setup:** See `SPV_TEMPLATES/` (formation docs, operating agreements)
 **For compliance:** See `COMPLIANCE_PLAYBOOK.md` (KYC/AML, Reg D, reporting)
 
 ---
 
-**Last updated:** November 2025  
+**Last updated:** November 2025
 **Version:** 1.0

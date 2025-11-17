@@ -7,7 +7,8 @@ from typing import Iterable, List
 
 BUCKET_ORDER = ["Immediate", "Near-Term", "Medium", "Long-Term", "Reject"]
 
-dataclass
+
+@dataclass
 class ScoreRow:
     asset: str
     score: float
@@ -56,8 +57,11 @@ def filter_by_bucket(rows: Iterable[ScoreRow], min_bucket: str) -> List[ScoreRow
     return [r for r in rows if _bucket_rank(r.bucket) <= min_rank]
 
 
-def top_assets(rows: Iterable[ScoreRow], min_bucket: str = "Near-Term", limit: int = 5) -> List[ScoreRow]:
-    """Return the top assets filtered by bucket and sorted by bucket rank, score desc, asset name.
+def top_assets(
+    rows: Iterable[ScoreRow], min_bucket: str = "Near-Term", limit: int = 5
+) -> List[ScoreRow]:
+    """Return the top assets filtered by bucket and sorted by bucket rank,
+    score desc, asset name.
     """
     filtered = filter_by_bucket(list(rows), min_bucket)
     sorted_rows = sorted(

@@ -1,6 +1,6 @@
+import os
 from dataclasses import dataclass
 from pathlib import Path
-import os
 from typing import Any, Dict
 
 try:
@@ -64,10 +64,16 @@ class Config:
         # Map policy into config fields for convenience
         self.min_score = float(self.risk.get("min_score", self.min_score))
         self.min_net_bps = float(self.risk.get("min_net_bps", self.min_net_bps))
-        self.max_position_usd = float(self.risk.get("max_position_usd", self.max_position_usd))
-        self.max_portfolio_usd = float(self.risk.get("max_portfolio_usd", self.max_portfolio_usd))
+        self.max_position_usd = float(
+            self.risk.get("max_position_usd", self.max_position_usd)
+        )
+        self.max_portfolio_usd = float(
+            self.risk.get("max_portfolio_usd", self.max_portfolio_usd)
+        )
         self.max_trades = int(self.risk.get("max_trades", self.max_trades))
-        self.allowed_buckets = tuple(self.risk.get("allowed_buckets", list(self.allowed_buckets)))
+        self.allowed_buckets = tuple(
+            self.risk.get("allowed_buckets", list(self.allowed_buckets))
+        )
 
         # Swarm behavior: honor environment override if set, otherwise use policy
         if "AI_DRY_RUN" not in os.environ:
