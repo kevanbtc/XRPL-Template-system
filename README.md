@@ -1,20 +1,60 @@
 # XRPL-Template-system
 
-Institutional-grade liquidity scoring, policy-driven AI swarm (dry-run), and security docs to operate as a sovereign rails operator on XRPL.
+[![CI](https://github.com/kevanbtc/XRPL-Template-system/actions/workflows/ci.yml/badge.svg)](https://github.com/kevanbtc/XRPL-Template-system/actions/workflows/ci.yml)
+![Built with Python](https://img.shields.io/badge/Python-3.11+-3776AB?logo=python&logoColor=white)
+![Policy‑Driven](https://img.shields.io/badge/AI-Policy--driven-blueviolet)
+![Dry‑Run Only](https://img.shields.io/badge/Execution-Dry--Run--Only-orange)
 
-- Scoring engine outputs: `output/asset_scores.csv`, `output/Assets.current.md`
-- AI swarm module: `ai/` (policy in `ai/config/ai_policy.yaml`)
-- Forensic run logs: `output/ai_runs/`
+Institutional‑grade liquidity scoring, policy‑driven AI swarm (dry‑run), and security docs for operating as a sovereign rails operator on XRPL.
 
-Quick start (Windows PowerShell):
+---
+
+## Contents
+
+- [Highlights](#highlights)
+- [Quick Start](#quick-start)
+- [System Architecture](#system-architecture)
+- [Policy-Driven AI](#policy-driven-ai)
+- [Forensic Audit Trail](#forensic-audit-trail)
+- [Weekly Cadence](#weekly-cadence)
+- [Repository Structure](#repository-structure)
+- [Roadmap](#roadmap)
+- [Contributing](#contributing)
+- [Security & Compliance](#security--compliance)
+
+---
+
+## Highlights
+
+- Scoring engine with gates and hard rejects (TTC/LTV/LD/CC/VF)
+- Grouped index page for prioritization (Immediate/Near‑Term first)
+- AI swarm that reads scores, applies policy, simulates markets, and produces a dry‑run plan
+- Externalized policy in YAML for auditability and change control
+- Forensic JSON run logs for each AI run
+
+---
+
+## Quick Start
+
+Outputs will appear in `output/`, AI logs in `output/ai_runs/`.
+
+Windows PowerShell:
 
 ```powershell
 python .\ai\run.py
 ```
 
-This runs the policy-driven swarm in dry-run mode and writes a structured JSON run log to `output/ai_runs/`.
+macOS/Linux:
 
-## XRPL-Template-system – RWA Liquidity & Scoring Engine
+```bash
+python ./ai/run.py
+```
+
+This runs the policy‑driven swarm in dry‑run mode and writes a structured JSON run log to `output/ai_runs/`.
+
+---
+
+## System Architecture
 
 This repo is a playbook + engine for turning a messy pile of real-world assets (RWA) into a ranked, disciplined liquidity plan.
 
@@ -36,7 +76,7 @@ It does three core things:
 
 ---
 
-## Repo Layout
+## Repository Structure
 
 ```text
 XRPL-Template-system/
@@ -64,7 +104,7 @@ XRPL-Template-system/
 
 ---
 
-## Scoring Model (High-Level)
+## Scoring Model (High‑Level)
 
 Each asset is evaluated on 5 dimensions (0–5):
 
@@ -110,7 +150,18 @@ flowchart LR
 
 ---
 
-## Quickstart
+## Policy-Driven AI
+
+- Policy file: `ai/config/ai_policy.yaml`
+- Changing these values is a policy change (requires review/approval)
+- Risk gates enforced: allowed buckets, minimum score, minimum net bps, max trades, position and portfolio caps
+
+## Forensic Audit Trail
+
+- Every run emits `output/ai_runs/ai_run_YYYYMMDDTHHMMSSZ.json`
+- Includes: timestamp, policy snapshot, inputs (scores + focus set), agent messages, approved opps, and the dry‑run trade plan
+
+## Weekly Cadence
 
 1) Add / update assets
 
@@ -154,10 +205,21 @@ python scripts/generate_assets_index.py \
 - `docs/scoring/` – ops manual + current snapshot template
 - `docs/templates/scoring/` – Intake, Focus, Sprint, Reject templates
 
-## Who this is for
+## Roadmap
+
+- [ ] Snapshot helper to archive CSV and AI logs into `history/`
+- [ ] Exchange adapters: XRPL DEX, CEX, and OTC stubs (dry‑run)
+- [ ] Unit tests for policy mapping, gating, and planner safety belts
+- [ ] CI: lint + unit tests; coverage badge
+
+## Contributing
+
+Issues and PRs are welcome. See `CONTRIBUTING.md`.
+
+## Security & Compliance
 
 - Internal: to focus engineering, legal, and BD on assets that turn into cash the fastest.
 - Lenders / Partners: to see why specific assets are prioritized, with clear gates and reject criteria.
 - Auditors / Compliance: to verify that liquidity decisions follow a documented, repeatable process.
 
-For day-to-day operations, see `docs/scoring/README.md`.
+For day‑to‑day operations, see `docs/scoring/README.md`. This repository is policy‑driven and dry‑run by default; all real execution remains gated by human approval and on‑ledger checks.
