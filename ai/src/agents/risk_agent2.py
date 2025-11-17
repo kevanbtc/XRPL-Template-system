@@ -1,7 +1,8 @@
-from typing import Optional, Dict, Any, List
+from typing import Any, Dict, List, Optional
+
+from swarm import Agent, Message
 
 from config import Config
-from swarm import Agent, Message
 
 
 class RiskAgent(Agent):
@@ -15,7 +16,9 @@ class RiskAgent(Agent):
             return None
         opps: List[Dict[str, Any]] = state.get("market_opps", [])
         approved: List[Dict[str, Any]] = []
-        allowed_buckets = set(getattr(self.cfg, "allowed_buckets", ("Immediate", "Near-Term")))
+        allowed_buckets = set(
+            getattr(self.cfg, "allowed_buckets", ("Immediate", "Near-Term"))
+        )
         for o in opps:
             bucket = o.get("bucket", "")
             score = float(o.get("score", 0.0))
@@ -30,4 +33,6 @@ class RiskAgent(Agent):
         state["risk_screened"] = True
         state["approved_opps"] = approved
         # Return a Message for orchestrator logging but tests will accept dict via payload
-        return Message(self.name, {"approved": len(approved), "approved_opps": approved})
+        return Message(
+            self.name, {"approved": len(approved), "approved_opps": approved}
+        )

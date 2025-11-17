@@ -1,8 +1,8 @@
 # Dual-Ledger XRPL Architecture
 
-**Document Version:** 1.0  
-**Last Updated:** 2025-11-16  
-**Classification:** Technical Architecture  
+**Document Version:** 1.0
+**Last Updated:** 2025-11-16
+**Classification:** Technical Architecture
 **Status:** Production Blueprint
 
 ---
@@ -150,7 +150,7 @@ xrpl:
     host: https://54.x.x.x:5005  # Public mainnet node
     websocket: wss://54.x.x.x:6006
     network_id: 0  # Mainnet
-  
+
   private:
     host: https://10.0.20.5:5005  # Private ledger node
     websocket: wss://10.0.20.5:6006
@@ -372,14 +372,14 @@ SELECT SUM(reserve_value) FROM xrpl_p_reserves WHERE currency = 'USD';
    port = 51235
    ip = 10.0.20.10  # This validator's IP
    peer_private = 1
-   
+
    [ips_fixed]
    10.0.20.11 51235  # Other validators
    10.0.20.12 51235
-   
+
    [validation_seed]
    <your_validation_seed>
-   
+
    [validators]
    <validator_1_public_key>
    <validator_2_public_key>
@@ -411,17 +411,17 @@ SELECT SUM(reserve_value) FROM xrpl_p_reserves WHERE currency = 'USD';
 2. **Duplicate client code:**
    ```python
    from xrpl.clients import JsonRpcClient, WebsocketClient
-   
+
    # Public mainnet
    public_client = JsonRpcClient(os.getenv('XRPL_PUBLIC_HOST'))
-   
+
    # Private ledger
    private_client = JsonRpcClient(os.getenv('XRPL_PRIVATE_HOST'))
-   
+
    def issue_public_token(currency, amount, destination):
        # Use public_client for mainnet operations
        ...
-   
+
    def create_private_vault(vault_id, metadata):
        # Use private_client for internal records
        ...
@@ -448,13 +448,13 @@ def issue_rwa_token(asset_id, amount, public_account, private_metadata):
             "risk_tier": private_metadata["risk_tier"]
         }))
     }
-    
+
     private_tx = NFTokenMint(
         account=PRIVATE_VAULT_ACCOUNT,
         **vault_nft
     )
     private_response = submit_and_wait(private_tx, private_client)
-    
+
     # Step 2: Issue public-facing token on XRPL-M
     public_tx = Payment(
         account=ISSUER_ACCOUNT,
@@ -472,7 +472,7 @@ def issue_rwa_token(asset_id, amount, public_account, private_metadata):
         }]
     )
     public_response = submit_and_wait(public_tx, public_client)
-    
+
     # Step 3: Log bridge event
     bridge_log.append({
         "timestamp": datetime.now(),
@@ -481,7 +481,7 @@ def issue_rwa_token(asset_id, amount, public_account, private_metadata):
         "asset_id": asset_id,
         "amount": amount
     })
-    
+
     return {
         "private_nft_id": vault_nft_id,
         "public_tx_hash": public_response.result["hash"]
@@ -643,13 +643,13 @@ risk_governor_nft = {
 # Neural Relay checks before any operation
 def before_mint(amount):
     governor = fetch_nft(RISK_GOVERNOR_ID, private_client)
-    
+
     if governor["status"] == "HALT":
         raise Exception("System halted by risk committee")
-    
+
     if amount > governor["conditions"]["max_single_mint"]:
         raise Exception("Exceeds single mint limit")
-    
+
     # ... proceed
 ```
 
@@ -720,7 +720,7 @@ def update_client_position(client_id, asset_change, liability_change):
         dest=client_accounts["assets"],
         amount=asset_change
     )
-    
+
     # Update liabilities
     send_payment(
         private_client,
@@ -728,11 +728,11 @@ def update_client_position(client_id, asset_change, liability_change):
         dest=client_accounts["liabilities"],
         amount=liability_change
     )
-    
+
     # Calculate real-time NAV
     nav = calculate_nav(client_accounts)
     ltv = calculate_ltv(client_accounts)
-    
+
     # Store snapshot
     snapshot_nft = {
         "client_id": client_id,
@@ -754,7 +754,7 @@ def export_client_ledger(client_id, start_date, end_date):
         "ledger_index_min": get_ledger_index(start_date),
         "ledger_index_max": get_ledger_index(end_date)
     }))
-    
+
     # Generate audit report
     report = {
         "client": client_id,
@@ -765,7 +765,7 @@ def export_client_ledger(client_id, start_date, end_date):
         "fees_paid": sum_fees(client_accounts["fees"]),
         "verification_hash": merkle_root(txs)
     }
-    
+
     return report
 ```
 
@@ -790,7 +790,7 @@ def generate_weekly_proof_bundle():
         "reserve_eur": get_balance("rReserves...", "EUR"),
         "reserve_gbp": get_balance("rReserves...", "GBP")
     }
-    
+
     # Query XRPL-P backing
     private_backing = {
         "gold_vaults": sum_vault_values("GOLD", private_client),
@@ -799,7 +799,7 @@ def generate_weekly_proof_bundle():
         "tbills": sum_vault_values("TBILL", private_client),
         "rubies": sum_vault_values("RUBY", private_client)
     }
-    
+
     # Create bundle
     bundle = {
         "date": datetime.now().isoformat(),
@@ -807,7 +807,7 @@ def generate_weekly_proof_bundle():
         "private_backing": private_backing,
         "collateralization_ratio": sum(private_backing.values()) / sum(mainnet_balances.values())
     }
-    
+
     return bundle
 
 # Step 2: Hash and commit
@@ -950,35 +950,35 @@ Once nodes + relay are live, run these experiments:
 
 ### Technical Capabilities
 
-✅ **Dual-ledger control** – public transparency + private operations  
-✅ **Programmable collateral** – RWAs become machine-readable vault objects  
-✅ **Immutable audit trails** – every operation logged, timestamped, verifiable  
-✅ **Real-time risk management** – on-chain credit lines, LTV checks, circuit breakers  
-✅ **Selective disclosure** – hide sensitive details, prove what matters  
-✅ **Bridge automation** – seamless asset movement between public/private  
-✅ **Proof-of-reserves** – weekly (or real-time) verification bundles  
+✅ **Dual-ledger control** – public transparency + private operations
+✅ **Programmable collateral** – RWAs become machine-readable vault objects
+✅ **Immutable audit trails** – every operation logged, timestamped, verifiable
+✅ **Real-time risk management** – on-chain credit lines, LTV checks, circuit breakers
+✅ **Selective disclosure** – hide sensitive details, prove what matters
+✅ **Bridge automation** – seamless asset movement between public/private
+✅ **Proof-of-reserves** – weekly (or real-time) verification bundles
 
 ### Operational Capabilities
 
-✅ **Act as issuer** – stablecoins, RWA tokens, credit instruments  
-✅ **Act as custodian** – reserves, collateral, client positions  
-✅ **Act as exchange** – internal netting, swaps, order books  
-✅ **Act as registrar** – canonical record of ownership  
-✅ **Act as auditor** – receipts, not vibes; math, not trust  
+✅ **Act as issuer** – stablecoins, RWA tokens, credit instruments
+✅ **Act as custodian** – reserves, collateral, client positions
+✅ **Act as exchange** – internal netting, swaps, order books
+✅ **Act as registrar** – canonical record of ownership
+✅ **Act as auditor** – receipts, not vibes; math, not trust
 
 ### Institutional Credibility
 
-✅ **Bank-compatible** – structured, documented, not DeFi chaos  
-✅ **Regulator-friendly** – full audit access to private ledger when needed  
-✅ **Investor-confident** – proof bundles, real-time verification  
-✅ **Client-protective** – commercial privacy + transparency where required  
+✅ **Bank-compatible** – structured, documented, not DeFi chaos
+✅ **Regulator-friendly** – full audit access to private ledger when needed
+✅ **Investor-confident** – proof bundles, real-time verification
+✅ **Client-protective** – commercial privacy + transparency where required
 
 ### Strategic Advantages
 
-✅ **No RPC manipulation risk** – you own the infrastructure  
-✅ **No third-party logging** – your transactions, your nodes  
-✅ **100-200 bps credibility premium** – "they have their own ledgers" is worth real money  
-✅ **Competitive moat** – most competitors rely on public APIs; you control the entire stack  
+✅ **No RPC manipulation risk** – you own the infrastructure
+✅ **No third-party logging** – your transactions, your nodes
+✅ **100-200 bps credibility premium** – "they have their own ledgers" is worth real money
+✅ **Competitive moat** – most competitors rely on public APIs; you control the entire stack
 
 ---
 
@@ -988,7 +988,7 @@ You're not just "running an XRPL node."
 
 You're operating a **mini financial operating system**:
 - **Public chain** = loudspeaker and final settlement
-- **Private chain** = brain, memory, and conscience  
+- **Private chain** = brain, memory, and conscience
 - **Neural Relay** = hands that do the work
 
 Every new feature from here is just a new **play** built on these three layers:

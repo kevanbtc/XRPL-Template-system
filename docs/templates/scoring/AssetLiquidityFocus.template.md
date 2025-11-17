@@ -19,7 +19,7 @@ These are the highest composite score + valid (non-Reject) assets. They should g
 - Compliance & Counterparty (CC): **[1–5]**
 - Verification (VF): **[1–5]**
 
-**Why this is top of stack (auto-filled from report):**  
+**Why this is top of stack (auto-filled from report):**
 > [Paste summary from `asset_scores.md`]
 
 **Next 7 days – concrete steps:**
