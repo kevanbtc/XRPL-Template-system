@@ -1,0 +1,17 @@
+risk:
+  min_score: 70
+  min_net_bps: 5
+  max_position_usd: 10000
+  max_portfolio_usd: 50000
+  max_trades: 5
+  allowed_buckets:
+    - Immediate
+    - Near-Term
+
+liquidity:
+  min_daily_volume_usd: 25000
+  max_spread_bps: 50
+
+swarm:
+  max_rounds: 3
+  dry_run: true

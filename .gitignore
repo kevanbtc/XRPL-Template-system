@@ -1,4 +1,15 @@
-# Python cache
+# General
+.DS_Store
+Thumbs.db
+*.log
+__pycache__/
+.pytest_cache/
+.venv/
+venv/
+.env
+
+# AI run logs (forensic outputs not committed by default)
+output/ai_runs/*.json# Python cache
 __pycache__/
 *.py[cod]
 *.pyo

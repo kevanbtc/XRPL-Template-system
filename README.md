@@ -1,4 +1,20 @@
-# XRPL-Template-system – RWA Liquidity & Scoring Engine
+# XRPL-Template-system
+
+Institutional-grade liquidity scoring, policy-driven AI swarm (dry-run), and security docs to operate as a sovereign rails operator on XRPL.
+
+- Scoring engine outputs: `output/asset_scores.csv`, `output/Assets.current.md`
+- AI swarm module: `ai/` (policy in `ai/config/ai_policy.yaml`)
+- Forensic run logs: `output/ai_runs/`
+
+Quick start (Windows PowerShell):
+
+```powershell
+python .\ai\run.py
+```
+
+This runs the policy-driven swarm in dry-run mode and writes a structured JSON run log to `output/ai_runs/`.
+
+## XRPL-Template-system – RWA Liquidity & Scoring Engine
 
 This repo is a playbook + engine for turning a messy pile of real-world assets (RWA) into a ranked, disciplined liquidity plan.
 
