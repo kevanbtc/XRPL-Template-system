@@ -3,7 +3,7 @@ import math
 
 from config import Config
 from swarm import Agent, Message
-from tools.scoring_reader import ScoreRow
+from tools.scoring_reader_clean import ScoreRow
 
 
 class MarketAgent(Agent):

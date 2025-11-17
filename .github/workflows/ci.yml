@@ -2,18 +2,63 @@ name: CI
 
 on:
   push:
-    branches: ["main"]
+    branches: [ main, master ]
   pull_request:
-    branches: ["main"]
+    branches: [ main, master ]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - name: Run AI swarm (dry-run)
+
+      - name: Cache pip
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Install dependencies
         run: |
-          python ai/run.py
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then
+            pip install -r requirements.txt
+          fi
+          # Ensure pytest present
+          pip install pytest
+          # Pre-commit for linting if configured
+          pip install pre-commit
+
+      - name: Run tests
+        run: |
+          if [ -d tests ]; then pytest -q; else echo "No tests directory found"; fi
+
+      - name: Run pre-commit (if configured)
+        run: |
+          if [ -f .pre-commit-config.yaml ]; then pre-commit run --all-files --show-diff-on-failure; else echo "No pre-commit config found"; fi
+
+      - name: Run AI swarm dry-run
+        run: |
+          if [ -f ai/run.py ]; then
+            python ai/run.py
+          else
+            echo "ai/run.py not found, skipping dry-run"
+          fi
+
+      - name: Upload AI forensic logs (if present)
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: ai-run-logs
+          path: |
+            output/ai_runs/**
+          if-no-files-found: ignore

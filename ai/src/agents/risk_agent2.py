@@ -29,4 +29,5 @@ class RiskAgent(Agent):
             approved.append(o)
         state["risk_screened"] = True
         state["approved_opps"] = approved
+        # Return a Message for orchestrator logging but tests will accept dict via payload
         return Message(self.name, {"approved": len(approved), "approved_opps": approved})

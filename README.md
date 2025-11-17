@@ -52,6 +52,22 @@ python ./ai/run.py
 
 This runs the policy‑driven swarm in dry‑run mode and writes a structured JSON run log to `output/ai_runs/`.
 
+## Developer Setup
+
+See the Windows-focused runbook in `docs/operations/DEV_ENV.md` for:
+
+- Dependency installation
+- Scoring and grouped index generation
+- Weekly history snapshots
+- AI swarm dry-run
+- Optional Docker usage
+
+Quick helper: `tools/weekly.ps1` will score, generate the index, snapshot history, and run the AI dry-run in one go.
+
+## CI
+
+GitHub Actions installs dependencies, caches pip, runs tests, executes the AI dry-run, and uploads forensic run logs (if present) as artifacts. See `.github/workflows/ci.yml`.
+
 ---
 
 ## System Architecture

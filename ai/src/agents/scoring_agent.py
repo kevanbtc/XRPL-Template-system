@@ -1,5 +1,5 @@
 from typing import Optional, Dict, Any
-from tools.scoring_reader import read_scores, top_assets, BUCKET_ORDER
+from tools.scoring_reader_clean import read_scores, top_assets, BUCKET_ORDER
 from config import Config
 from swarm import Agent, Message
 

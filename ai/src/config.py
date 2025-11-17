@@ -69,5 +69,6 @@ class Config:
         self.max_trades = int(self.risk.get("max_trades", self.max_trades))
         self.allowed_buckets = tuple(self.risk.get("allowed_buckets", list(self.allowed_buckets)))
 
-        # Swarm behavior
-        self.dry_run = bool(self.swarm.get("dry_run", self.dry_run))
+        # Swarm behavior: honor environment override if set, otherwise use policy
+        if "AI_DRY_RUN" not in os.environ:
+            self.dry_run = bool(self.swarm.get("dry_run", self.dry_run))
