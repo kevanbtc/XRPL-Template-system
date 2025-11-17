@@ -1,6 +1,8 @@
 # XRPL-Template-system
 
 [![CI](https://github.com/kevanbtc/XRPL-Template-system/actions/workflows/ci.yml/badge.svg)](https://github.com/kevanbtc/XRPL-Template-system/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![GitHub Issues](https://img.shields.io/github/issues/kevanbtc/XRPL-Template-system)](https://github.com/kevanbtc/XRPL-Template-system/issues)
 ![Built with Python](https://img.shields.io/badge/Python-3.11+-3776AB?logo=python&logoColor=white)
 ![Policy‑Driven](https://img.shields.io/badge/AI-Policy--driven-blueviolet)
 ![Dry‑Run Only](https://img.shields.io/badge/Execution-Dry--Run--Only-orange)
@@ -52,6 +54,35 @@ python ./ai/run.py
 
 This runs the policy‑driven swarm in dry‑run mode and writes a structured JSON run log to `output/ai_runs/`.
 
+## Prerequisites
+
+To run this project, you'll need:
+
+- **Python 3.11 or higher**
+- **pip** (Python package installer)
+- **PyYAML** for policy configuration (included in requirements.txt)
+
+Optional:
+- **Docker** for containerized deployment
+- **pre-commit** for automated code quality checks
+
+## Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/kevanbtc/XRPL-Template-system.git
+cd XRPL-Template-system
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Optional: Install development dependencies
+pip install -e ".[dev]"
+
+# Optional: Set up pre-commit hooks
+pre-commit install
+```
+
 ## Developer Setup
 
 See the Windows-focused runbook in `docs/operations/DEV_ENV.md` for:
@@ -64,9 +95,31 @@ See the Windows-focused runbook in `docs/operations/DEV_ENV.md` for:
 
 Quick helper: `tools/weekly.ps1` will score, generate the index, snapshot history, and run the AI dry-run in one go.
 
-## CI
+## Testing
 
-GitHub Actions installs dependencies, caches pip, runs tests, executes the AI dry-run, and uploads forensic run logs (if present) as artifacts. See `.github/workflows/ci.yml`.
+Run the test suite to verify everything works:
+
+```bash
+# Run all tests
+pytest
+
+# Run with verbose output
+pytest -v
+
+# Run specific test file
+pytest tests/test_config_policy_loading.py
+```
+
+## CI/CD
+
+GitHub Actions automatically:
+- Installs dependencies with pip caching
+- Runs the test suite
+- Executes linting via pre-commit hooks
+- Runs the AI swarm dry-run
+- Uploads forensic run logs as artifacts
+
+See [`.github/workflows/ci.yml`](.github/workflows/ci.yml) for the full CI configuration.
 
 ---
 
@@ -230,7 +283,22 @@ python scripts/generate_assets_index.py \
 
 ## Contributing
 
-Issues and PRs are welcome. See `CONTRIBUTING.md`.
+We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details on:
+
+- Setting up your development environment
+- Running tests and linting
+- Commit message guidelines
+- Opening pull requests
+
+Please also read our [Code of Conduct](CODE_OF_CONDUCT.md) before contributing.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md) for a list of changes and version history.
 
 ## Security & Compliance
 
