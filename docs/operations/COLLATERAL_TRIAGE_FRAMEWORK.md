@@ -1,7 +1,7 @@
 # COLLATERAL TRIAGE FRAMEWORK
 
-**Purpose:** Institutional-grade decision system for evaluating exotic/complex assets  
-**Audience:** Credit committees, treasury operations, asset managers  
+**Purpose:** Institutional-grade decision system for evaluating exotic/complex assets
+**Audience:** Credit committees, treasury operations, asset managers
 **Philosophy:** Sort the real from the theater. Only monetize what can survive external scrutiny.
 
 ---
@@ -106,8 +106,8 @@ This framework gives you:
 
 ### 🟢 ASSET 1: HDG RUBY COLLECTION
 
-**Nominal Value:** $376.7M (HDG Appraisal Group, Oct 2021)  
-**Current Status:** Appraisal exists, ownership via I.B.E. → FollowMe monetization rights  
+**Nominal Value:** $376.7M (HDG Appraisal Group, Oct 2021)
+**Current Status:** Appraisal exists, ownership via I.B.E. → FollowMe monetization rights
 **Initial Tier:** **Tier 1.5** (institutional-grade *if* verification passes)
 
 #### Go/No-Go Checklist
@@ -152,14 +152,14 @@ Assuming Phase 1 passed:
   - Art/jewelry secured lenders: Borro, Luxury Asset Capital, Sutton Capital
   - Private bank art finance desks: Citi Private Bank, JPM Private Bank, UBS
   - Family offices known for hard-asset lending
-  
+
 - [ ] **Present full package:**
   - Updated appraisal
   - GIA reports
   - Custody agreement
   - Insurance policy
   - Legal opinion on ownership/title
-  
+
 - [ ] **Ask one question:**
   > "Would you lend against this? If yes, at what LTV, rate, and minimum/maximum ticket size?"
 
@@ -168,8 +168,8 @@ Assuming Phase 1 passed:
   - Rate: ____%
   - Ticket size: $___M – $___M
   - Conditions: ________________
-  
-**Decision Point 2:** 
+
+**Decision Point 2:**
 
 - If **zero** lenders respond positively → **STOP**. Downgrade to Tier 2 or 3. Treat as long-term optionality, not active collateral.
 - If **1+ lenders** provide term sheets → **PROCEED** to Phase 3.
@@ -221,12 +221,12 @@ custody_location: Geneva Freeport
 - **Stablecoin Backing:** Ruby facility ($30M) can back TGUSD issuance
   - Mint cap: 90% of facility ($27M TGUSD)
   - Over-collateralization: 111% (conservative)
-  
+
 - **Private Placement:** Issue "Ruby Vault I Notes" — $20M, 3yr, 10% coupon
   - Secured by facility cash flows
   - NFT-based note ownership
   - AFO automated payments
-  
+
 - **Bank Filings Page:** Publish daily PoR showing:
   - Facility balance verified
   - Insurance active
@@ -245,8 +245,8 @@ custody_location: Geneva Freeport
 
 ### 🟡 ASSET 2: IQD BOXES + OIL CERTIFICATES
 
-**Nominal Value:** Unclear (boxes of Iraqi Dinar + oil-related paper)  
-**Current Status:** Swiss registration letter confirms boxes exist; contents/value unverified  
+**Nominal Value:** Unclear (boxes of Iraqi Dinar + oil-related paper)
+**Current Status:** Swiss registration letter confirms boxes exist; contents/value unverified
 **Initial Tier:** **Tier 2 (speculative, time-boxed verification only)**
 
 #### Go/No-Go Checklist
@@ -290,7 +290,7 @@ If lawyer found *some* contractual value in oil certs OR IQD can be sold at any 
 - [ ] **Contact 2–3 specialist buyers:**
   - For IQD: Currency dealers specializing in exotic/restricted currencies
   - For oil certs: Commodity trade finance firms, oil traders, structured trade desks
-  
+
 - [ ] **Get binding quotes:**
   - IQD: Offer to sell X million IQD at market rate minus Y% discount
   - Oil certs: Present legal opinion + docs, ask for bid
@@ -345,8 +345,8 @@ These proceeds flow through normal treasury operations. The rails only see clean
 
 ### 🔴 ASSET 3: HISTORIC CHINESE BONDS ("Super Petchili")
 
-**Nominal Value:** Varies (often claimed in billions)  
-**Current Status:** Genuine historic instruments, but China does not honor, courts have rejected claims  
+**Nominal Value:** Varies (often claimed in billions)
+**Current Status:** Genuine historic instruments, but China does not honor, courts have rejected claims
 **Initial Tier:** **Tier 3 (zero value for capital purposes, optionality only)**
 
 #### Go/No-Go Checklist
@@ -357,12 +357,12 @@ These proceeds flow through normal treasury operations. The rails only see clean
   - Contact scripophily experts (e.g., R.M. Smythe, Spink)
   - Send high-res scans
   - Get opinion: "These are authentic 191X era bonds" vs. "These are reproductions"
-  
+
 - [ ] **Get collector value quote:**
   - Ask: What would a numismatic collector pay per bond?
   - Typical range: $50–500 per bond (depending on condition, rarity)
 
-**Decision Point 1:** 
+**Decision Point 1:**
 
 - If bonds are **authentic** → document, archive, consider selling a few to collectors for small cash
 - If bonds are **reproductions** → discard, assign zero value
@@ -376,12 +376,12 @@ These proceeds flow through normal treasury operations. The rails only see clean
   - Catalog: Issue dates, serial numbers, denominations
   - Store in climate-controlled secure location
   - Create IPFS bundle with full documentation
-  
+
 - [ ] **Legal package (minimal):**
   - One-time legal opinion on ownership/chain of custody
   - UCC filing if you want to perfect security interest (optional)
   - Budget: $3–5K
-  
+
 - [ ] **Monitor for "black swan" events:**
   - Chinese government announces buyback program (extremely unlikely)
   - International arbitration tribunal orders payment (never succeeded to date)
@@ -427,8 +427,8 @@ If you want small immediate cash:
 
 ### 🟢 ASSET 4: SANTANDER BANKING PACKAGE (EUR CHEQUES + IBAN)
 
-**Nominal Value:** €200M (10× €20M cheques)  
-**Current Status:** Account ownership confirmed, cheque nature unverified  
+**Nominal Value:** €200M (10× €20M cheques)
+**Current Status:** Account ownership confirmed, cheque nature unverified
 **Initial Tier:** **Tier 1 (if verified) or Tier 3 (if not)**
 
 This is your **highest-priority verification target** because:
@@ -445,18 +445,18 @@ This is your **highest-priority verification target** because:
   - Reference: IBAN ES21 0049 5656 5323 1000 2112
   - Reference: Cheque serial numbers (from photos)
   - Reference: Forum Europe S.L. as account holder
-  
+
 - [ ] **Questions to ask (in writing, via secure email):**
 
   1. **Cheque Nature:**
      - Are these cashier's/certified cheques or ordinary corporate cheques?
      - Are funds currently reserved/blocked for these cheques?
      - Expiry date, revocation conditions?
-     
+
   2. **Account Status:**
      - Is account active and in good standing?
      - Any encumbrances, liens, legal holds?
-     
+
   3. **Monetization Options:**
      - Can Santander issue a **blocked funds letter** for PoF purposes?
      - Can Santander convert to SBLC / Bank Guarantee?
@@ -492,13 +492,13 @@ This is your **highest-priority verification target** because:
   - Rate: Euribor + 200–500 bps
   - Maturity: 1–3 years
   - Covenants: Standard corporate facility terms
-  
+
 - [ ] **Legal structure:**
   - Borrower: Forum Europe S.L. or new SPV "Santander Facility I, S.L."
   - Collateral: Pledge of cheques or assignment of account balances
   - Jurisdiction: Spanish law, likely Madrid courts
   - Budget: €20–40K legal fees
-  
+
 - [ ] **Execute facility:**
   - Sign credit agreement
   - File security registrations
@@ -586,15 +586,15 @@ max_ltv: 60%
 ```markdown
 ### Santander Facility I
 
-**Backing:** Credit facility with Banco Santander S.A.  
-**Facility Size:** €100,000,000  
-**Underlying:** 10× €20M negotiable cheques, IBAN ES21…2112  
-**Account Holder:** FORUM EUROPE S.L. (verified)  
-**Last Verification:** 2025-01-15 14:32 UTC  
-**Facility Available:** €98,450,000 (Chainlink oracle)  
-**Stablecoins Issued:** $105,000,000 TGUSD  
-**Collateralization:** 123% (target: 120%)  
-**Status:** ✅ Fully backed  
+**Backing:** Credit facility with Banco Santander S.A.
+**Facility Size:** €100,000,000
+**Underlying:** 10× €20M negotiable cheques, IBAN ES21…2112
+**Account Holder:** FORUM EUROPE S.L. (verified)
+**Last Verification:** 2025-01-15 14:32 UTC
+**Facility Available:** €98,450,000 (Chainlink oracle)
+**Stablecoins Issued:** $105,000,000 TGUSD
+**Collateralization:** 123% (target: 120%)
+**Status:** ✅ Fully backed
 
 **Documentation:**
 - [Account Ownership Certificates](ipfs://Qm...)
@@ -606,13 +606,13 @@ max_ltv: 60%
 
 **Time Budget:** 12 weeks, €50–100K all-in (legal, Chainlink nodes, engineering)
 
-**Expected Outcome:** 
+**Expected Outcome:**
 - €80–120M verified facility
 - $80–120M stablecoin backing capacity
 - Institutional-grade PoR system
 - Template reusable for future bank facilities
 
-**Success Metric:** 
+**Success Metric:**
 You can show an external auditor:
 1. Bank-issued confirmation of facility
 2. Daily oracle proofs of balance
@@ -714,7 +714,7 @@ Build Chainlink External Adapter:
    - Quarterly appraisals (rubies)
    - Vault receipts (gold)
    - Insurance policy active confirmations
-   
+
 2. **Proof Server:** Your backend service that:
    - Ingests verification docs (PDFs, APIs, emails)
    - Validates authenticity (signatures, seals, hashes)
@@ -766,9 +766,9 @@ function mint(address to, uint256 amount) external {
     uint256 capacity = facilityRegistry.getUsableCapacity(facilityId);
     uint256 capacityUSD = capacity * eurUsdPrice / 1e18; // if EUR facility
     uint256 maxMint = capacityUSD * 90 / 100; // 90% of capacity
-    
+
     require(totalMinted + amount <= maxMint, "Exceeds capacity");
-    
+
     totalMinted += amount;
     _mint(to, amount);
 }
@@ -781,14 +781,14 @@ Bank Filings page section:
 ```markdown
 ### [Facility Name]
 
-**Backing:** [Asset type / Bank facility]  
-**Facility Size:** [Amount in base currency]  
-**Underlying:** [Brief description]  
-**Last Verification:** [Timestamp] UTC  
-**Facility Available:** [Oracle-verified amount]  
-**Stablecoins Issued:** [Amount] [TICKER]  
-**Collateralization:** [%] (target: [%])  
-**Status:** ✅ Fully backed | ⚠️ Below target | 🔴 Failed PoR  
+**Backing:** [Asset type / Bank facility]
+**Facility Size:** [Amount in base currency]
+**Underlying:** [Brief description]
+**Last Verification:** [Timestamp] UTC
+**Facility Available:** [Oracle-verified amount]
+**Stablecoins Issued:** [Amount] [TICKER]
+**Collateralization:** [%] (target: [%])
+**Status:** ✅ Fully backed | ⚠️ Below target | 🔴 Failed PoR
 
 **Documentation:**
 - [Evidence Bundle](ipfs://...)
@@ -883,26 +883,26 @@ Before building vaults/oracles/facilities:
   - Independent appraisal/assay/audit (if applicable)
   - Bank confirmation (if banking asset)
   - Legal opinion on ownership/title
-  
+
 - [ ] **Lender/buyer interest confirmed**
   - At least 1 binding term sheet OR purchase offer
   - Terms documented (LTV, rate, maturity, ticket size)
-  
+
 - [ ] **Insurance in place**
   - All-risk policy from major carrier
   - Coverage ≥ 60% of verified value
   - Your entity (or SPV) named as loss payee
-  
+
 - [ ] **Custody/control established**
   - Physical asset: Licensed vault/custodian
   - Financial asset: Segregated account, no encumbrances
   - Vault receipts / account statements available
-  
+
 - [ ] **Legal structure finalized**
   - SPV formed (if needed)
   - Security interests perfected (UCC filings, pledges)
   - Facility/loan agreement executed
-  
+
 - [ ] **Cost-benefit validated**
   - Expected facility size ≥ 5× verification cost
   - Example: $30M ruby facility justifies $50K appraisal cost
@@ -947,15 +947,15 @@ Once asset is live in your rails:
 ### Template 1: Explaining to Asset Owners
 
 > "We've built a system that can turn real, verified assets into programmable capital. Here's how we evaluate what you've brought us:
-> 
+>
 > **Phase 1:** We verify everything independently. Not because we don't trust you, but because our investors will ask, and we need answers.
-> 
+>
 > **Phase 2:** We approach 3–5 real lenders/buyers. If they'll give us a term sheet, we know it's real.
-> 
+>
 > **Phase 3:** If it passes those tests, we build digital infrastructure (vaults, oracles, stablecoins) and your asset backs real financial products.
-> 
+>
 > **What we DON'T do:** Build infrastructure around 'maybes' or 'somedays.' If it doesn't pass external verification, we document it and wait for reality to change.
-> 
+>
 > You want us to be hard on this. Because the assets that DO pass become the foundation of a system that actually works."
 
 ---
@@ -963,13 +963,13 @@ Once asset is live in your rails:
 ### Template 2: Explaining to Investors
 
 > "Our collateral system has three tiers:
-> 
+>
 > **Tier 1:** Assets we can borrow against TODAY from real banks/lenders. These back stablecoins, notes, and programs. Full oracle transparency.
-> 
+>
 > **Tier 2:** Assets undergoing time-boxed verification. Not yet in capital calculations. If they pass, they graduate to Tier 1.
-> 
+>
 > **Tier 3:** Documented but unmonetizable. We track them for optionality, but they have zero weight in our reserves.
-> 
+>
 > You can see the breakdown on our Bank Filings page. We only count Tier 1 in collateralization ratios. Tier 2/3 are disclosed for completeness, not backing."
 
 ---
@@ -977,17 +977,17 @@ Once asset is live in your rails:
 ### Template 3: Explaining to Regulators/Auditors
 
 > "Our asset intake process follows a credit committee framework:
-> 
+>
 > 1. **Initial Triage:** Every asset is initially assigned Tier 3 (zero value) until proven otherwise.
-> 
+>
 > 2. **External Verification:** We require third-party confirmation (appraisals, bank letters, legal opinions) before upgrading to Tier 2.
-> 
+>
 > 3. **Lender Validation:** We require at least one binding term sheet from a reputable lender/buyer before upgrading to Tier 1.
-> 
+>
 > 4. **Ongoing Monitoring:** Tier 1 assets have automated oracle verification (daily, weekly, or quarterly depending on asset type). PoR data is published on-chain.
-> 
+>
 > 5. **Conservative Haircuts:** We apply institutional-grade haircuts (e.g., 80% for rubies, 50% for bank facilities) before calculating LTV.
-> 
+>
 > This ensures our stablecoin holders are never exposed to 'hopium' collateral. Only verified, lender-accepted assets back our issuance."
 
 ---

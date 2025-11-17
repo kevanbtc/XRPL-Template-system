@@ -1,6 +1,5 @@
-from pathlib import Path
 import sys
-
+from pathlib import Path
 
 # Add ai/src to path like ai/run.py
 ROOT = Path(__file__).resolve().parents[1]
@@ -8,8 +7,9 @@ AI_SRC = ROOT / "ai" / "src"
 if str(AI_SRC) not in sys.path:
     sys.path.insert(0, str(AI_SRC))
 
-from config import Config  # type: ignore
 from agents.risk_agent import RiskAgent  # type: ignore
+
+from config import Config  # type: ignore
 
 
 def _cfg(

@@ -68,6 +68,7 @@ exclude = [
 ]
 per-file-ignores = [
     "__init__.py:F401",
+    "tests/*.py:E402",
 ]
 
 [tool.pytest.ini_options]

@@ -2,8 +2,8 @@
 
 **The Complete RWA Lending Reference**
 
-**Version:** 1.0  
-**Date:** November 2025  
+**Version:** 1.0
+**Date:** November 2025
 **Classification:** Internal Reference — Operations & Credit Teams
 
 ---
@@ -42,7 +42,7 @@ This is the **institutional playbook** for asset-backed lending.
 
 ### 1.1 Gold (Mined, Unmined, Doré, Claims)
 
-**LTV:** 40-75%  
+**LTV:** 40-75%
 **Funding Speed:** Fast (24-72 hours)
 
 **Tokenization Approach:**
@@ -74,7 +74,7 @@ This is the **institutional playbook** for asset-backed lending.
 
 ### 1.2 Silver, Platinum, Palladium
 
-**LTV:** 30-60%  
+**LTV:** 30-60%
 **Funding Speed:** Fast (24-72 hours)
 
 **Tokenization Approach:**
@@ -94,7 +94,7 @@ This is the **institutional playbook** for asset-backed lending.
 
 ### 2.1 Water Rights (Municipal, Agricultural, Industrial)
 
-**LTV:** 30-65%  
+**LTV:** 30-65%
 **Funding Speed:** Moderate (1-2 weeks)
 
 **Tokenization Approach:**
@@ -124,7 +124,7 @@ This is the **institutional playbook** for asset-backed lending.
 
 ### 2.2 Wells & Water Infrastructure
 
-**LTV:** 35-70%  
+**LTV:** 35-70%
 **Funding Speed:** Moderate
 
 **Tokenization Approach:**
@@ -142,7 +142,7 @@ This is the **institutional playbook** for asset-backed lending.
 
 ### 3.1 Lithium, Rare Earth & Battery Metals
 
-**LTV:** 25-50%  
+**LTV:** 25-50%
 **Funding Speed:** Moderate (2-4 weeks)
 
 **Tokenization Approach:**
@@ -172,7 +172,7 @@ This is the **institutional playbook** for asset-backed lending.
 
 ### 3.2 Oil & Gas Wells
 
-**LTV:** 25-60%  
+**LTV:** 25-60%
 **Funding Speed:** Moderate
 
 **Tokenization Approach:**
@@ -195,7 +195,7 @@ This is the **institutional playbook** for asset-backed lending.
 
 ### 3.3 Solar Farms, PPAs, Utility Contracts
 
-**LTV:** 40-65%  
+**LTV:** 40-65%
 **Funding Speed:** Moderate
 
 **Tokenization Approach:**
@@ -219,7 +219,7 @@ This is the **institutional playbook** for asset-backed lending.
 
 ### 3.4 Carbon Credits
 
-**LTV:** 40-70%  
+**LTV:** 40-70%
 **Funding Speed:** Fast (once verified)
 
 **Tokenization Approach:**
@@ -242,7 +242,7 @@ This is the **institutional playbook** for asset-backed lending.
 
 ### 4.1 Hotel & Resort Development Contracts (Hilton, Marriott, IHG)
 
-**LTV:** 20-60%  
+**LTV:** 20-60%
 **Funding Speed:** Fast (1-2 weeks for smaller deals)
 
 **Tokenization Approach:**
@@ -275,7 +275,7 @@ This is the **institutional playbook** for asset-backed lending.
 
 ### 5.1 T-Bills, Treasury Notes, Government Bonds
 
-**LTV:** 80-95%  
+**LTV:** 80-95%
 **Funding Speed:** Instant (same-day)
 
 **Tokenization Approach:**
@@ -305,7 +305,7 @@ This is the **institutional playbook** for asset-backed lending.
 
 ### 6.1 Raw Land
 
-**LTV:** 20-40%  
+**LTV:** 20-40%
 **Funding Speed:** Moderate (2-4 weeks)
 
 **Tokenization Approach:**
@@ -330,7 +330,7 @@ This is the **institutional playbook** for asset-backed lending.
 
 ### 6.2 Agricultural Land
 
-**LTV:** 35-60%  
+**LTV:** 35-60%
 **Funding Speed:** Moderate
 
 **Tokenization Approach:**
@@ -347,7 +347,7 @@ This is the **institutional playbook** for asset-backed lending.
 
 ### 6.3 Commercial Real Estate (Income-Producing)
 
-**LTV:** 50-70%  
+**LTV:** 50-70%
 **Funding Speed:** Moderate (2-3 weeks)
 
 **Tokenization Approach:**
@@ -375,7 +375,7 @@ This is the **institutional playbook** for asset-backed lending.
 
 ### 7.1 Invoice Receivables / Trade Finance
 
-**LTV:** 60-90%  
+**LTV:** 60-90%
 **Funding Speed:** Rapid (24-48 hours)
 
 **Tokenization Approach:**
@@ -404,7 +404,7 @@ This is the **institutional playbook** for asset-backed lending.
 
 ### 7.2 Government Receivables (Contracts with Agencies)
 
-**LTV:** 70-85%  
+**LTV:** 70-85%
 **Funding Speed:** Fast
 
 **Tokenization Approach:**
@@ -426,7 +426,7 @@ This is the **institutional playbook** for asset-backed lending.
 
 ### 8.1 Bitcoin (BTC)
 
-**LTV:** 50-70%  
+**LTV:** 50-70%
 **Funding Speed:** Instant (minutes)
 
 **Tokenization Approach:**
@@ -452,7 +452,7 @@ This is the **institutional playbook** for asset-backed lending.
 
 ### 8.2 Ethereum (ETH)
 
-**LTV:** 40-60%  
+**LTV:** 40-60%
 **Funding Speed:** Instant
 
 **Tokenization Approach:**
@@ -466,7 +466,7 @@ This is the **institutional playbook** for asset-backed lending.
 
 ### 8.3 Stablecoins (USDC, USDT, DAI)
 
-**LTV:** 90-100%  
+**LTV:** 90-100%
 **Funding Speed:** Instant
 
 **Tokenization Approach:**
@@ -482,7 +482,7 @@ This is the **institutional playbook** for asset-backed lending.
 
 ### 9.1 Private Company Shares / Equity
 
-**LTV:** 10-35%  
+**LTV:** 10-35%
 **Funding Speed:** Moderate (2-4 weeks)
 
 **Tokenization Approach:**
@@ -505,7 +505,7 @@ This is the **institutional playbook** for asset-backed lending.
 
 ### 9.2 Sports & Entertainment Contracts
 
-**LTV:** 10-40%  
+**LTV:** 10-40%
 **Funding Speed:** Fast
 
 **Tokenization Approach:**
@@ -553,7 +553,7 @@ This is the **institutional playbook** for asset-backed lending.
 
 ### 9.4 Art & Collectibles
 
-**LTV:** 30-50%  
+**LTV:** 30-50%
 **Funding Speed:** Slow (verification-heavy, 2-4 weeks)
 
 **Tokenization Approach:**
@@ -575,7 +575,7 @@ This is the **institutional playbook** for asset-backed lending.
 
 ### 9.5 Intellectual Property (Patents, Trademarks, Copyrights)
 
-**LTV:** 20-40%  
+**LTV:** 20-40%
 **Funding Speed:** Slow (complex, 4-8 weeks)
 
 **Tokenization Approach:**
@@ -691,34 +691,34 @@ Prepare:
 
 ### Conservative Portfolio (Low Risk, Lower Yield)
 
-**Target LTV:** 50-60%  
+**Target LTV:** 50-60%
 **Asset Mix:**
 - 50% T-bills / government securities
 - 30% Vaulted gold / precious metals
 - 20% Investment-grade commercial real estate
 
-**Expected Yield:** 8-10%  
+**Expected Yield:** 8-10%
 **Default Risk:** <1%
 
 ---
 
 ### Balanced Portfolio (Moderate Risk, Moderate Yield)
 
-**Target LTV:** 60-70%  
+**Target LTV:** 60-70%
 **Asset Mix:**
 - 30% Government securities / stablecoins
 - 30% Gold / precious metals
 - 25% Commercial real estate
 - 15% Invoice receivables / trade finance
 
-**Expected Yield:** 10-12%  
+**Expected Yield:** 10-12%
 **Default Risk:** 1-3%
 
 ---
 
 ### Aggressive Portfolio (Higher Risk, Higher Yield)
 
-**Target LTV:** 70-80%  
+**Target LTV:** 70-80%
 **Asset Mix:**
 - 20% Government securities (liquidity buffer)
 - 25% Mining projects (lithium, gold)
@@ -726,7 +726,7 @@ Prepare:
 - 15% Energy projects (solar, oil & gas)
 - 15% Opportunistic (water, IP, sports contracts)
 
-**Expected Yield:** 12-16%  
+**Expected Yield:** 12-16%
 **Default Risk:** 3-7%
 
 ---
@@ -754,8 +754,8 @@ For every deal, verify:
 
 **This document is confidential and intended for internal use by Unykorn credit and operations teams.**
 
-For questions or updates, contact:  
+For questions or updates, contact:
 **Unykorn Capital Management, LLC — Credit Policy Committee**
 
-**Last updated:** November 2025  
+**Last updated:** November 2025
 **Version:** 1.0

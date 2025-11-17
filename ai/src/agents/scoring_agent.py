@@ -1,7 +1,9 @@
-from typing import Optional, Dict, Any
-from tools.scoring_reader_clean import read_scores, top_assets, BUCKET_ORDER
-from config import Config
+from typing import Any, Dict, Optional
+
 from swarm import Agent, Message
+from tools.scoring_reader_clean import BUCKET_ORDER, read_scores, top_assets
+
+from config import Config
 
 
 class ScoringAgent(Agent):

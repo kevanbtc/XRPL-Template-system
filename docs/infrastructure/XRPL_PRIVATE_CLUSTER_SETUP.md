@@ -1,9 +1,9 @@
 # XRPL Private Cluster Setup Guide
 
-**Document Version:** 1.0  
-**Last Updated:** 2025-11-16  
-**Purpose:** Step-by-step instructions for deploying XRPL-P (private ledger)  
-**Difficulty:** Intermediate to Advanced  
+**Document Version:** 1.0
+**Last Updated:** 2025-11-16
+**Purpose:** Step-by-step instructions for deploying XRPL-P (private ledger)
+**Difficulty:** Intermediate to Advanced
 **Time:** 4-6 hours for initial setup
 
 ---
@@ -847,7 +847,7 @@ xrpl:
     network_id: 0
     timeout: 30
     retry_attempts: 3
-  
+
   private:
     # Use stock node for reliability
     host: https://10.0.20.20:5005
@@ -1040,10 +1040,10 @@ telnet 10.0.20.20 5005
 
 You now have:
 
-✅ **Private XRPL cluster** (3 validators, 2 stock nodes)  
-✅ **Network isolation** (private subnet, security groups)  
-✅ **High availability** (multi-validator consensus)  
-✅ **Operational procedures** (monitoring, backups, updates)  
+✅ **Private XRPL cluster** (3 validators, 2 stock nodes)
+✅ **Network isolation** (private subnet, security groups)
+✅ **High availability** (multi-validator consensus)
+✅ **Operational procedures** (monitoring, backups, updates)
 ✅ **Application integration** (Neural Relay connection)
 
 **Next Steps:**

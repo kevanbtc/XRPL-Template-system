@@ -87,4 +87,3 @@ Apply gating reductions:
 
 ## Change Log
 - v1.0: Initial weighting focused on fastest liquidity (higher TTC and LTV emphasis)
-
