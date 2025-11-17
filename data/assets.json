@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Rubies Collection",
+    "codes": {"VF": 4, "LD": 4, "TTC": 3, "LTV": 4, "CR": 3, "CC": 5, "EC": 3, "NL": 4},
+    "tags": ["RWA", "gem"],
+    "notes": "Awaiting updated appraisal & insurance placement",
+    "gates": {"verification_days": 20, "compliance_risk": false}
+  },
+  {
+    "name": "Santander Promissory Notes",
+    "codes": {"VF": 2, "LD": 3, "TTC": 2, "LTV": 4, "CR": 2, "CC": 4, "EC": 3, "NL": 5},
+    "tags": ["bank", "instrument"],
+    "notes": "Bank confirmation pending",
+    "gates": {"verification_days": 45, "compliance_risk": false}
+  },
+  {
+    "name": "Unykorn IP Licensing",
+    "codes": {"VF": 5, "LD": 4, "TTC": 4, "LTV": 3, "CR": 4, "CC": 5, "EC": 4, "NL": 4},
+    "tags": ["IP", "licensing"],
+    "notes": "Pilot client outreach ongoing",
+    "gates": {"verification_days": 10, "compliance_risk": false}
+  },
+  {
+    "name": "IP-Backed Note (post 3 licenses)",
+    "codes": {"VF": 5, "LD": 3, "TTC": 4, "LTV": 3, "CR": 4, "CC": 5, "EC": 4, "NL": 4},
+    "tags": ["IP", "credit"],
+    "notes": "Requires license contracts executed",
+    "gates": {"verification_days": 30, "compliance_risk": false}
+  },
+  {
+    "name": "IQD Boxes",
+    "codes": {"VF": 1, "LD": 0, "TTC": 0, "LTV": 1, "CR": 0, "CC": 2, "EC": 2, "NL": 2},
+    "tags": ["speculative"],
+    "notes": "Logistics proven; economic value unverified",
+    "gates": {"verification_days": 120, "compliance_risk": false}
+  },
+  {
+    "name": "Historic Chinese Bonds",
+    "codes": {"VF": 1, "LD": 0, "TTC": 0, "LTV": 0, "CR": 0, "CC": 3, "EC": 2, "NL": 1},
+    "tags": ["legacy"],
+    "notes": "Collectible only; no enforcement value",
+    "gates": {"verification_days": 200, "compliance_risk": false}
+  }
+]

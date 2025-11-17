@@ -1,0 +1,27 @@
+{
+  // Default weight configuration (percentages summing to 100)
+  "weights": {
+    "VF": 12,
+    "LD": 15,
+    "TTC": 20,
+    "LTV": 18,
+    "CR": 10,
+    "CC": 8,
+    "EC": 10,
+    "NL": 7
+  },
+  // Gating rules
+  "gates": {
+    "min_vf_for_near_term": 2,
+    "min_cc_for_near_term": 2,
+    "compliance_cap": 50,          // cap composite when compliance risk high
+    "verification_penalty_days": 60,
+    "verification_penalty_points": 10
+  },
+  // Bucket thresholds
+  "thresholds": {
+    "immediate": 80,
+    "near_term": 60,
+    "background": 40
+  }
+}

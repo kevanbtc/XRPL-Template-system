@@ -1,0 +1,33 @@
+{
+  // VaultProof Metadata Template (JSON with comments)
+  "vault_id": "[VAULT_ID]",                       // e.g., SANTANDER-JV-VAULT-001
+  "asset_type": "[ASSET_TYPE]",                  // e.g., Banco Santander promissory notes
+  "jurisdiction": "[JURISDICTIONS]",             // e.g., Spain (Valencia) / Texas (USA)
+  "owner_spv": "[SPV_LEGAL_NAME]",               // SPV holding title/rights
+  "manager": "[PLATFORM_MANAGER]",               // e.g., Unykorn Operations
+  "control_wallet": "[WALLET_ADDRESS]",          // admin/manager wallet
+
+  "ipfs_cids": [                                  // evidence bundle CIDs
+    "[CID_JV]",
+    "[CID_NOTARY]",
+    "[CID_APOSTILLE]",
+    "[CID_ACCOUNT_CERTS]",
+    "[CID_APPRAISAL]",
+    "[CID_CUSTODY]"
+  ],
+
+  "nominal_value": {
+    "amount": "[AMOUNT]",
+    "currency": "[CCY]"
+  },
+
+  "bank_confirmation_status": "pending",          // pending | confirmed | denied
+  "current_ltv_pct": 0,                            // numeric, set >0 only after confirmation
+
+  "disclaimers": [
+    "Not included in headline reserves until confirmed",
+    "Subject to independent legal/appraisal/insurance as applicable"
+  ],
+
+  "last_updated": "[ISO8601_TIMESTAMP]"
+}
