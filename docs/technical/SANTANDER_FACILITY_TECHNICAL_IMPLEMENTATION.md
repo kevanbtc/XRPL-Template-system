@@ -1,8 +1,8 @@
  well to start building a scoring system and rating and ensure we are f SANTANDER FACILITY — TECHNICAL IMPLEMENTATION GUIDE
 
-**Purpose:** Complete technical blueprint for integrating Santander banking facility into Unykorn rails  
-**Scope:** Proof Server → Chainlink Oracle → On-Chain Contracts → Stablecoin Pool  
-**Audience:** Backend engineers, smart contract developers, DevOps  
+**Purpose:** Complete technical blueprint for integrating Santander banking facility into Unykorn rails
+**Scope:** Proof Server → Chainlink Oracle → On-Chain Contracts → Stablecoin Pool
+**Audience:** Backend engineers, smart contract developers, DevOps
 
 ---
 
@@ -129,7 +129,7 @@
 
 ```sql
 INSERT INTO proof_records (
-  iban, statement_date, balance_eur, blocked_funds_eur, 
+  iban, statement_date, balance_eur, blocked_funds_eur,
   file_hash, file_path, verified_at
 ) VALUES (
   'ES2100495656532310002112', '2025-01-15', 128000000, 200000000,
@@ -280,10 +280,10 @@ interface ProofServerResponse {
 
 app.post('/', async (req: Request, res: Response) => {
   const jobRunId = req.body.id || '1';
-  
+
   try {
     const { iban } = req.body.data as ChainlinkRequest['data'];
-    
+
     if (!iban) {
       throw new Error('Missing required parameter: iban');
     }
@@ -420,7 +420,7 @@ observationSource = """
     fetch_proof [type="bridge" name="santander-iban-adapter" requestData="{\\"iban\\": \\"ES2100495656532310002112\\"}"]
     parse [type="jsonparse" path="data,result"]
     submit [type="ethtx" to="0xFacilityFeedContractAddress" data="$(parse)"]
-    
+
     fetch_proof -> parse -> submit
 """
 ```
@@ -475,36 +475,36 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 contract SantanderFacilityFeed is Ownable {
     uint256 public facilityAvailable; // EUR amount scaled to 1e18
     uint256 public lastUpdated;
-    
+
     address public oracleAddress;
     bool public frozen;
-    
+
     event FacilityUpdated(uint256 newValue, uint256 timestamp);
     event FacilityFrozen(string reason);
     event FacilityUnfrozen();
-    
+
     modifier notFrozen() {
         require(!frozen, "Facility feed is frozen");
         _;
     }
-    
+
     constructor(address _oracleAddress) {
         oracleAddress = _oracleAddress;
     }
-    
+
     /**
      * @notice Update facility value (only callable by oracle)
      * @param _newValue New facility available amount (1e18 scaled EUR)
      */
     function updateValue(uint256 _newValue) external notFrozen {
         require(msg.sender == oracleAddress, "Only oracle can update");
-        
+
         facilityAvailable = _newValue;
         lastUpdated = block.timestamp;
-        
+
         emit FacilityUpdated(_newValue, block.timestamp);
     }
-    
+
     /**
      * @notice Freeze feed (emergency stop)
      * @param reason Human-readable reason for freeze
@@ -513,7 +513,7 @@ contract SantanderFacilityFeed is Ownable {
         frozen = true;
         emit FacilityFrozen(reason);
     }
-    
+
     /**
      * @notice Unfreeze feed
      */
@@ -521,7 +521,7 @@ contract SantanderFacilityFeed is Ownable {
         frozen = false;
         emit FacilityUnfrozen();
     }
-    
+
     /**
      * @notice Update oracle address (if node changes)
      * @param _newOracle New Chainlink oracle address
@@ -529,7 +529,7 @@ contract SantanderFacilityFeed is Ownable {
     function setOracleAddress(address _newOracle) external onlyOwner {
         oracleAddress = _newOracle;
     }
-    
+
     /**
      * @notice Check if feed is stale (>48 hours)
      */
@@ -567,12 +567,12 @@ contract FacilityRegistry is Ownable {
         address oracleFeed;
         bool active;
     }
-    
+
     mapping(bytes32 => Facility) public facilities;
-    
+
     event FacilityAdded(bytes32 indexed id, uint256 cap, address oracleFeed);
     event FacilityUpdated(bytes32 indexed id, uint256 cap, bool active);
-    
+
     /**
      * @notice Add new facility
      * @param id Facility identifier (e.g., keccak256("FAC-SANTANDER-001"))
@@ -587,7 +587,7 @@ contract FacilityRegistry is Ownable {
         address oracleFeed
     ) external onlyOwner {
         require(facilities[id].id == bytes32(0), "Facility already exists");
-        
+
         facilities[id] = Facility({
             id: id,
             cap: cap,
@@ -595,10 +595,10 @@ contract FacilityRegistry is Ownable {
             oracleFeed: oracleFeed,
             active: true
         });
-        
+
         emit FacilityAdded(id, cap, oracleFeed);
     }
-    
+
     /**
      * @notice Update facility parameters
      */
@@ -610,14 +610,14 @@ contract FacilityRegistry is Ownable {
     ) external onlyOwner {
         Facility storage fac = facilities[id];
         require(fac.id != bytes32(0), "Facility does not exist");
-        
+
         fac.cap = cap;
         fac.minCollateralRatio = minCollateralRatio;
         fac.active = active;
-        
+
         emit FacilityUpdated(id, cap, active);
     }
-    
+
     /**
      * @notice Get usable capacity for facility
      * @param id Facility identifier
@@ -625,20 +625,20 @@ contract FacilityRegistry is Ownable {
      */
     function getUsableCapacity(bytes32 id) public view returns (uint256) {
         Facility storage fac = facilities[id];
-        
+
         if (!fac.active) return 0;
-        
+
         IFacilityFeed feed = IFacilityFeed(fac.oracleFeed);
-        
+
         // Reject if oracle data is stale
         if (feed.isStale()) return 0;
-        
+
         uint256 available = feed.facilityAvailable();
-        
+
         // Apply facility cap
         return available > fac.cap ? fac.cap : available;
     }
-    
+
     /**
      * @notice Get facility info
      */
@@ -673,16 +673,16 @@ interface IPriceFeed {
 
 contract TGUSDSantanderPool is ERC20, Ownable {
     bytes32 public constant FACILITY_ID = keccak256("FAC-SANTANDER-001");
-    
+
     IFacilityRegistry public facilityRegistry;
     IPriceFeed public eurUsdPriceFeed; // Chainlink EUR/USD feed
-    
+
     uint256 public constant MIN_COLLATERAL_RATIO = 12000; // 120% in bps
     uint256 public totalMinted;
-    
+
     event Minted(address indexed to, uint256 amount, uint256 facilityUsed);
     event Burned(address indexed from, uint256 amount, uint256 facilityFreed);
-    
+
     constructor(
         address _facilityRegistry,
         address _eurUsdPriceFeed
@@ -690,7 +690,7 @@ contract TGUSDSantanderPool is ERC20, Ownable {
         facilityRegistry = IFacilityRegistry(_facilityRegistry);
         eurUsdPriceFeed = IPriceFeed(_eurUsdPriceFeed);
     }
-    
+
     /**
      * @notice Mint TGUSD (only authorized minter)
      * @param to Recipient address
@@ -700,26 +700,26 @@ contract TGUSDSantanderPool is ERC20, Ownable {
         // 1. Get facility capacity in EUR
         uint256 capacityEur = facilityRegistry.getUsableCapacity(FACILITY_ID);
         require(capacityEur > 0, "Facility unavailable");
-        
+
         // 2. Convert to USD
         int256 eurUsdPrice = eurUsdPriceFeed.latestAnswer(); // e.g., 1.08 USD per EUR (8 decimals)
         require(eurUsdPrice > 0, "Invalid price feed");
-        
+
         uint256 capacityUsd = (capacityEur * uint256(eurUsdPrice)) / 1e8;
-        
+
         // 3. Apply collateralization ratio
         uint256 maxMint = (capacityUsd * 10000) / MIN_COLLATERAL_RATIO; // Divide by 120%
-        
+
         // 4. Check mint cap
         require(totalMinted + amount <= maxMint, "Exceeds facility capacity");
-        
+
         // 5. Mint
         totalMinted += amount;
         _mint(to, amount);
-        
+
         emit Minted(to, amount, capacityEur);
     }
-    
+
     /**
      * @notice Burn TGUSD (redemption)
      * @param from Address to burn from
@@ -728,27 +728,27 @@ contract TGUSDSantanderPool is ERC20, Ownable {
     function burn(address from, uint256 amount) external onlyOwner {
         totalMinted -= amount;
         _burn(from, amount);
-        
+
         emit Burned(from, amount, 0);
     }
-    
+
     /**
      * @notice Check current collateralization ratio
      * @return Ratio in basis points (e.g., 12500 = 125%)
      */
     function collateralizationRatio() external view returns (uint256) {
         if (totalMinted == 0) return type(uint256).max;
-        
+
         uint256 capacityEur = facilityRegistry.getUsableCapacity(FACILITY_ID);
         int256 eurUsdPrice = eurUsdPriceFeed.latestAnswer();
-        
+
         if (eurUsdPrice <= 0 || capacityEur == 0) return 0;
-        
+
         uint256 capacityUsd = (capacityEur * uint256(eurUsdPrice)) / 1e8;
-        
+
         return (capacityUsd * 10000) / totalMinted;
     }
-    
+
     /**
      * @notice Emergency freeze (stops all minting)
      */
@@ -791,7 +791,7 @@ async function main() {
   const facilityId = ethers.utils.id("FAC-SANTANDER-001");
   const cap = ethers.utils.parseUnits("100000000", 18); // €100M
   const minCollateralRatio = 12000; // 120%
-  
+
   await registry.addFacility(facilityId, cap, minCollateralRatio, facilityFeed.address);
   console.log("Facility FAC-SANTANDER-001 added to registry");
 
@@ -972,14 +972,14 @@ from datadog import statsd
 @app.post("/api/v1/statements/upload")
 async def upload_statement(request: StatementUpload):
     statsd.increment('proof_server.statements.uploaded')
-    
+
     # ... processing ...
-    
+
     if verified:
         statsd.increment('proof_server.statements.verified')
     else:
         statsd.increment('proof_server.statements.failed')
-        
+
     statsd.histogram('proof_server.balance_eur', balance_eur)
 ```
 

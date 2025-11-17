@@ -1,10 +1,10 @@
 # UNYKORN RWA OPERATIONS MANUAL
 
-**Real-World Asset Lending & Tokenization**  
+**Real-World Asset Lending & Tokenization**
 *Institutional Operations Guide*
 
-**Version:** 1.0  
-**Date:** November 2025  
+**Version:** 1.0
+**Date:** November 2025
 **Classification:** Confidential — For Internal & Partner Use
 
 ---
@@ -47,7 +47,7 @@ Three categories of external capital will fund asset-backed deals structured thr
 
 ### A) Private Credit Funds
 
-**What they are:**  
+**What they are:**
 Institutional funds specializing in asset-backed lending outside traditional bank channels.
 
 **What they lend on:**
@@ -130,7 +130,7 @@ Private credit funds value your **owned XRPL node fleet** because it eliminates:
 
 ### C) OTC Desks, Brokers & Syndicators
 
-**What they are:**  
+**What they are:**
 Intermediaries who **bring investors**, not their own capital.
 
 **What they route to you:**
@@ -170,7 +170,7 @@ Institutional credibility requires **third-party verification and custody**. Her
 
 ### A) Custodians (Hold Assets & Provide Proof)
 
-**Role:**  
+**Role:**
 Hold collateral assets so **you cannot unilaterally access them**.
 
 **What they hold:**
@@ -234,7 +234,7 @@ Hold collateral assets so **you cannot unilaterally access them**.
 
 ### B) Gateways & On/Off-Ramps (Move Money)
 
-**Role:**  
+**Role:**
 Enable fiat ↔ crypto conversions and ACH/wire access.
 
 **Key Providers (by category):**
@@ -310,8 +310,8 @@ Here's the **precise flow** when you onboard a client asset and raise external c
 - Real estate → title company + escrow
 - Contracts → legal escrow agent
 
-**Critical point:**  
-**You (Unykorn) don't hold the collateral.**  
+**Critical point:**
+**You (Unykorn) don't hold the collateral.**
 Custodian = institutional trust.
 
 ---
@@ -386,8 +386,8 @@ Custodian = institutional trust.
 - Your treasury node validates receipt
 - Converted to fiat or held as stablecoin collateral
 
-**Key point:**  
-Investors do **not** send money to a blockchain address directly.  
+**Key point:**
+Investors do **not** send money to a blockchain address directly.
 Blockchain handles **reporting, not custody**.
 
 ---
@@ -453,7 +453,7 @@ This is the **minimal viable SPV framework** you'd use (expand with counsel):
 
 ---
 
-**UNYKORN REAL ASSETS SPV I, LLC**  
+**UNYKORN REAL ASSETS SPV I, LLC**
 Jurisdiction: Delaware / Wyoming / Cayman Islands
 
 ---
@@ -474,7 +474,7 @@ And to issue secured notes and participations in connection therewith.
 
 ### Manager
 
-**Unykorn Capital Management, LLC**  
+**Unykorn Capital Management, LLC**
 (or equivalent management entity)
 
 Responsible for:
@@ -521,10 +521,10 @@ All investor/lender claims are secured by:
 
 ### Record-Keeping & Ledger
 
-**Legal records:**  
+**Legal records:**
 Maintained in corporate books and records (traditional).
 
-**Technical records:**  
+**Technical records:**
 All economic positions, cashflows, and collateral references are **mirrored** to the XRPL-based Unykorn ledger.
 
 **XRPL infrastructure:**
@@ -536,8 +536,8 @@ All economic positions, cashflows, and collateral references are **mirrored** to
   - Payments
   - Redemptions
 
-**Important note:**  
-On-chain entries **do not replace** legal contracts.  
+**Important note:**
+On-chain entries **do not replace** legal contracts.
 They serve as **immutable audit trail** and **transparency layer**.
 
 ---
@@ -1129,7 +1129,7 @@ This is the **operational checklist** you (and staff) follow every time you onbo
 
 ---
 
-**This is the full loop:**  
+**This is the full loop:**
 Who → What → Where → When → How XRPL + your infrastructure support credibility and speed.
 
 ---
@@ -1264,10 +1264,10 @@ B) **SPV owns economic rights (alternative for complex deals):**
 
 ### Step 4: Tokenization (Economics, Not Deed)
 
-**What you DON'T do:**  
+**What you DON'T do:**
 Tokenize the deed itself (too messy, regulatory minefield).
 
-**What you DO:**  
+**What you DO:**
 Tokenize economic interests:
 
 - **Senior Note Token:** 1 token = $1,000 face value of senior debt
@@ -1389,7 +1389,7 @@ Gross Sale Price
 - Real-time dashboards
 - Third-party appraisals linked to VaultProof
 
-**Result:**  
+**Result:**
 Credible enough for family offices and private credit funds, not just retail speculators.
 
 ---
@@ -1518,10 +1518,10 @@ We operate our own **3-node XRPL mainnet infrastructure**, which serves as a **t
 
 ## Contact
 
-**Unykorn Capital Management, LLC**  
+**Unykorn Capital Management, LLC**
 [Your contact info]
 
-**Interested in learning more?**  
+**Interested in learning more?**
 Request our full investor presentation, sample term sheet, or VaultProof demo.
 
 ---
@@ -1594,7 +1594,7 @@ Request our full investor presentation, sample term sheet, or VaultProof demo.
 
 ### Use Case 1: Gold Mine Offtake Financing
 
-**Asset:**  
+**Asset:**
 Gold mine with verified reserves, existing offtake agreement with major refiner.
 
 **Structure:**
@@ -1615,7 +1615,7 @@ Gold mine with verified reserves, existing offtake agreement with major refiner.
 
 ### Use Case 2: Apartment Building Acquisition
 
-**Asset:**  
+**Asset:**
 50-unit apartment building, 92% occupied, $750K annual NOI.
 
 **Structure:**
@@ -1635,7 +1635,7 @@ Gold mine with verified reserves, existing offtake agreement with major refiner.
 
 ### Use Case 3: T-Bill Backed Stablecoin Program
 
-**Asset:**  
+**Asset:**
 $20M in short-term T-bills held at qualified custodian.
 
 **Structure:**
@@ -1677,9 +1677,9 @@ $20M in short-term T-bills held at qualified custodian.
 
 **This document is confidential and intended for internal use and distribution to qualified institutional partners only.**
 
-For questions or clarifications, contact:  
-**Unykorn Capital Management, LLC**  
+For questions or clarifications, contact:
+**Unykorn Capital Management, LLC**
 [Contact information]
 
-**Last updated:** November 2025  
+**Last updated:** November 2025
 **Version:** 1.0

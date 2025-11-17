@@ -1,7 +1,7 @@
-import csv
-from pathlib import Path
 import argparse
+import csv
 from datetime import datetime
+from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 OUTPUT_DIR = ROOT / "output"
@@ -16,7 +16,13 @@ def read_rows(path: Path):
 
 
 def bucket_groups(rows):
-    groups = {"Immediate": [], "Near-Term": [], "Background": [], "Archive": [], "Reject": []}
+    groups = {
+        "Immediate": [],
+        "Near-Term": [],
+        "Background": [],
+        "Archive": [],
+        "Reject": [],
+    }
     for r in rows:
         bucket = r.get("Bucket", "").strip()
         if bucket not in groups:
@@ -25,11 +31,13 @@ def bucket_groups(rows):
         groups[bucket].append(r)
     # sort by Score desc where present
     for k in groups:
+
         def score_key(x):
             try:
                 return float(x.get("Score", 0.0))
             except Exception:
                 return 0.0
+
         groups[k].sort(key=score_key, reverse=True)
     return groups
 
@@ -58,37 +66,60 @@ def build_index_md(groups):
 
     # Immediate
     parts.append("## Immediate – Execute Now\n\n")
-    headers = ["Rank", "Asset", "Score", "TTC", "LTV", "LD", "CC", "VF", "Owner", "Notes"]
+    headers = [
+        "Rank",
+        "Asset",
+        "Score",
+        "TTC",
+        "LTV",
+        "LD",
+        "CC",
+        "VF",
+        "Owner",
+        "Notes",
+    ]
     rows = []
     for i, r in enumerate(groups.get("Immediate", []), start=1):
-        rows.append({
-            "Rank": i,
-            "Asset": r.get("Asset", ""),
-            "Score": r.get("Score", ""),
-            "TTC": r.get("TTC", ""),
-            "LTV": r.get("LTV", ""),
-            "LD": r.get("LD", ""),
-            "CC": r.get("CC", ""),
-            "VF": r.get("VF", ""),
-            "Owner": r.get("Owner", ""),
-            "Notes": r.get("Notes", ""),
-        })
+        rows.append(
+            {
+                "Rank": i,
+                "Asset": r.get("Asset", ""),
+                "Score": r.get("Score", ""),
+                "TTC": r.get("TTC", ""),
+                "LTV": r.get("LTV", ""),
+                "LD": r.get("LD", ""),
+                "CC": r.get("CC", ""),
+                "VF": r.get("VF", ""),
+                "Owner": r.get("Owner", ""),
+                "Notes": r.get("Notes", ""),
+            }
+        )
     parts.append(render_table(headers, rows) + "\n\n---\n\n")
 
     # Near-Term
     parts.append("## Near-Term – Unlock to Promote\n\n")
-    headers = ["Rank", "Asset", "Score", "Key Unlock", "TTC After Unlock", "Owner", "Notes"]
+    headers = [
+        "Rank",
+        "Asset",
+        "Score",
+        "Key Unlock",
+        "TTC After Unlock",
+        "Owner",
+        "Notes",
+    ]
     rows = []
     for i, r in enumerate(groups.get("Near-Term", []), start=1):
-        rows.append({
-            "Rank": i,
-            "Asset": r.get("Asset", ""),
-            "Score": r.get("Score", ""),
-            "Key Unlock": r.get("KeyUnlock", r.get("Unlock", "")),
-            "TTC After Unlock": r.get("TTC_After", ""),
-            "Owner": r.get("Owner", ""),
-            "Notes": r.get("Notes", ""),
-        })
+        rows.append(
+            {
+                "Rank": i,
+                "Asset": r.get("Asset", ""),
+                "Score": r.get("Score", ""),
+                "Key Unlock": r.get("KeyUnlock", r.get("Unlock", "")),
+                "TTC After Unlock": r.get("TTC_After", ""),
+                "Owner": r.get("Owner", ""),
+                "Notes": r.get("Notes", ""),
+            }
+        )
     parts.append(render_table(headers, rows) + "\n\n---\n\n")
 
     # Background
@@ -96,13 +127,15 @@ def build_index_md(groups):
     headers = ["Asset", "Score", "Main Workstream", "Owner", "Reason It's Background"]
     rows = []
     for r in groups.get("Background", []):
-        rows.append({
-            "Asset": r.get("Asset", ""),
-            "Score": r.get("Score", ""),
-            "Main Workstream": r.get("Workstream", ""),
-            "Owner": r.get("Owner", ""),
-            "Reason It's Background": r.get("Reason", ""),
-        })
+        rows.append(
+            {
+                "Asset": r.get("Asset", ""),
+                "Score": r.get("Score", ""),
+                "Main Workstream": r.get("Workstream", ""),
+                "Owner": r.get("Owner", ""),
+                "Reason It's Background": r.get("Reason", ""),
+            }
+        )
     parts.append(render_table(headers, rows) + "\n\n---\n\n")
 
     # Archive
@@ -110,25 +143,45 @@ def build_index_md(groups):
     headers = ["Asset", "Score", "Reason Archived", "Revisit Trigger"]
     rows = []
     for r in groups.get("Archive", []):
-        rows.append({
-            "Asset": r.get("Asset", ""),
-            "Score": r.get("Score", ""),
-            "Reason Archived": r.get("Reason", ""),
-            "Revisit Trigger": r.get("Revisit", ""),
-        })
+        rows.append(
+            {
+                "Asset": r.get("Asset", ""),
+                "Score": r.get("Score", ""),
+                "Reason Archived": r.get("Reason", ""),
+                "Revisit Trigger": r.get("Revisit", ""),
+            }
+        )
     parts.append(render_table(headers, rows) + "\n\n---\n\n")
 
     parts.append("## Reject / Dogshit – Logged Separately\n\n")
-    parts.append("See: `docs/templates/scoring/RejectLog.template.md` and the Reject section in `output/asset_scores.md` for rule triggers and reasons.\n\n")
-    parts.append(f"_Generated by the FTH Liquidity Engine on: {now}.  This is a planning tool, not an offering document. All transactions remain subject to legal, compliance, and counterparty approvals._\n")
+    parts.append(
+        "See: `docs/templates/scoring/RejectLog.template.md` and the Reject section in `output/asset_scores.md` for rule triggers and reasons.\n\n"
+    )
+    parts.append(
+        f"_Generated by the FTH Liquidity Engine on: {now}.  This is a planning tool, not an offering document. All transactions remain subject to legal, compliance, and counterparty approvals._\n"
+    )
 
     return "".join(parts)
 
 
 def parse_args():
-    p = argparse.ArgumentParser(description="Generate grouped Assets.current.md from asset_scores.csv")
-    p.add_argument("--input", "-i", type=str, default=str(DEFAULT_INPUT), help="Path to asset_scores.csv")
-    p.add_argument("--output", "-o", type=str, default=str(DEFAULT_OUTPUT), help="Path to write Assets.current.md")
+    p = argparse.ArgumentParser(
+        description="Generate grouped Assets.current.md from asset_scores.csv"
+    )
+    p.add_argument(
+        "--input",
+        "-i",
+        type=str,
+        default=str(DEFAULT_INPUT),
+        help="Path to asset_scores.csv",
+    )
+    p.add_argument(
+        "--output",
+        "-o",
+        type=str,
+        default=str(DEFAULT_OUTPUT),
+        help="Path to write Assets.current.md",
+    )
     return p.parse_args()
 
 

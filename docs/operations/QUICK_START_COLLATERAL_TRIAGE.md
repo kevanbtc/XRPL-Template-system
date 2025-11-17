@@ -1,7 +1,7 @@
 # UNYKORN COLLATERAL SYSTEM — QUICK START GUIDE
 
-**For:** Operators who need to onboard new collateral assets  
-**Time to read:** 10 minutes  
+**For:** Operators who need to onboard new collateral assets
+**Time to read:** 10 minutes
 **Output:** Clear go/no-go decision on any asset
 
 ---
@@ -315,11 +315,11 @@ Once asset passes verification and you have lender term sheet:
 - [ ] Build Proof Server (if new asset class)
   - Ingests verification docs (statements, appraisals, vault receipts)
   - Exposes `/latestProof` API
-  
+
 - [ ] Build Chainlink External Adapter
   - Calls Proof Server
   - Returns normalized value (1e18 scaled)
-  
+
 - [ ] Deploy Oracle Feed Contract
   - Stores latest value from Chainlink
   - Emits events on update
@@ -330,7 +330,7 @@ Once asset passes verification and you have lender term sheet:
 - [ ] Add facility to registry (ID, cap, LTV, oracle feed)
 - [ ] Deploy stablecoin pool (or add facility to existing)
   - Mint cap = oracle-verified capacity × collateralization factor
-  
+
 - [ ] Test mint/burn flows
 
 ### Reporting (Week 4)
@@ -524,18 +524,18 @@ Once asset passes verification and you have lender term sheet:
 Draft email to Santander RM:
 
 > Subject: Facility inquiry — IBAN ES21…2112, Forum Europe S.L.
-> 
+>
 > Dear [RM Name],
-> 
+>
 > We are exploring the possibility of establishing a credit facility or blocked funds arrangement secured by the 10× €20M negotiable cheques (series [numbers]) tied to IBAN ES21 0049 5656 5323 1000 2112 (holder: FORUM EUROPE S.L.).
-> 
+>
 > Could you please confirm:
 > 1. Are these instruments certified/cashier's cheques with funds currently blocked?
 > 2. Would Santander be willing to issue a blocked funds letter for proof-of-funds purposes?
 > 3. Alternatively, could we discuss converting these into a formal credit facility or SBLC?
-> 
+>
 > We can schedule a call this week to discuss terms.
-> 
+>
 > Best regards,
 > [Your Name]
 
@@ -552,7 +552,7 @@ Contact HDG Appraisal Group:
 > 2. The appraiser is/was on your staff?
 > 3. Process for obtaining an updated appraisal?"
 
-**If they confirm: Schedule fresh appraisal.**  
+**If they confirm: Schedule fresh appraisal.**
 **If they deny: Stop immediately, downgrade to Tier 3.**
 
 ---

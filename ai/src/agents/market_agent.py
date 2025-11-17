@@ -1,9 +1,8 @@
-from typing import Optional, Dict, Any, List
-import math
+from typing import Any, Dict, List, Optional
+
+from swarm import Agent, Message
 
 from config import Config
-from swarm import Agent, Message
-from tools.scoring_reader_clean import ScoreRow
 
 
 class MarketAgent(Agent):

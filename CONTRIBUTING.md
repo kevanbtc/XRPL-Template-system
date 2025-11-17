@@ -27,10 +27,10 @@ This project adheres to a [Code of Conduct](CODE_OF_CONDUCT.md). By participatin
 
    ```bash
    python -m venv .venv
-   
+
    # Activate on Windows
    .venv\Scripts\activate
-   
+
    # Activate on macOS/Linux
    source .venv/bin/activate
    ```

@@ -5,7 +5,6 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Iterable, List
 
-
 BUCKET_ORDER = ["Immediate", "Near-Term", "Medium", "Long-Term", "Reject"]
 
 
@@ -48,7 +47,9 @@ def filter_by_bucket(rows: Iterable[ScoreRow], min_bucket: str) -> List[ScoreRow
     return [r for r in rows if _bucket_rank(r.bucket) <= min_rank]
 
 
-def top_assets(rows: Iterable[ScoreRow], min_bucket: str = "Near-Term", limit: int = 5) -> List[ScoreRow]:
+def top_assets(
+    rows: Iterable[ScoreRow], min_bucket: str = "Near-Term", limit: int = 5
+) -> List[ScoreRow]:
     filtered = filter_by_bucket(list(rows), min_bucket)
     sorted_rows = sorted(
         filtered,

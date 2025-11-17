@@ -19,7 +19,9 @@ class Orchestrator:
     def __init__(self, agents: List[Agent]) -> None:
         self.agents = agents
 
-    def run(self, state: Optional[Dict[str, Any]] = None, max_rounds: int = 8) -> Dict[str, Any]:
+    def run(
+        self, state: Optional[Dict[str, Any]] = None, max_rounds: int = 8
+    ) -> Dict[str, Any]:
         if state is None:
             state = {}
         rounds = 0
