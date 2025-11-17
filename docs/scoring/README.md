@@ -206,3 +206,6 @@ These snapshots form the audit trail that shows:
 
 - Security & Sovereign Infra: `../security/README.md`
 - Compliance Evidence Index: `../security/compliance/evidence-index.md`
+
+## AI Swarm Integration (Policy-Driven)
+
