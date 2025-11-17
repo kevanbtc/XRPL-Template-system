@@ -1,6 +1,5 @@
 import sys
 from pathlib import Path
-from pprint import pprint
 import csv
 
 
@@ -26,8 +25,18 @@ def _maybe_seed_csv(cfg: Config) -> None:
     if cfg.output_scores_csv.exists():
         return
     rows = [
-        {"Asset": "ASSET_A", "Score": 82, "Bucket": "Immediate", "Notes": "High demand"},
-        {"Asset": "ASSET_B", "Score": 74, "Bucket": "Near-Term", "Notes": "Growing volume"},
+        {
+            "Asset": "ASSET_A",
+            "Score": 82,
+            "Bucket": "Immediate",
+            "Notes": "High demand",
+        },
+        {
+            "Asset": "ASSET_B",
+            "Score": 74,
+            "Bucket": "Near-Term",
+            "Notes": "Growing volume",
+        },
         {"Asset": "ASSET_C", "Score": 58, "Bucket": "Medium", "Notes": "Moderate"},
         {"Asset": "DOGSHIT", "Score": 12, "Bucket": "Reject", "Notes": "Hard reject"},
         {"Asset": "ASSET_D", "Score": 91, "Bucket": "Immediate", "Notes": "Low TTC"},
@@ -43,7 +52,11 @@ def main() -> None:
     _maybe_seed_csv(cfg)
 
     # Swarm rounds from policy if provided
-    max_rounds = int(getattr(cfg, "swarm", {}).get("max_rounds", 8)) if getattr(cfg, "swarm", None) else 8
+    max_rounds = (
+        int(getattr(cfg, "swarm", {}).get("max_rounds", 8))
+        if getattr(cfg, "swarm", None)
+        else 8
+    )
     ork = Orchestrator(
         agents=[
             ScoringAgent(cfg),
@@ -77,7 +90,8 @@ def main() -> None:
     print(f"\nMarket opportunities ({len(opps)}):")
     for o in opps:
         print(
-            f"  - {o['asset']} {o['direction']} | net_bps={o['net_bps']} | est_profit($1k)={o['est_profit_1000']}"
+            f"  - {o['asset']} {o['direction']} | net_bps={o['net_bps']} | "
+            f"est_profit($1k)={o['est_profit_1000']}"
         )
 
     approved = state.get("approved_opps", [])
@@ -89,7 +103,8 @@ def main() -> None:
     print(f"\nDry-run trade plan ({len(plan)}):")
     for t in plan:
         print(
-            f"  - {t['asset']} {t['direction']} | size=${t['size_usd']} | exp_profit=${t['expected_profit_usd']}"
+            f"  - {t['asset']} {t['direction']} | size=${t['size_usd']} | "
+            f"exp_profit=${t['expected_profit_usd']}"
         )
 
     # Persist forensic run log
@@ -114,19 +129,33 @@ def main() -> None:
         messages = []
         for m in state.get("log", []):
             # m is our Message dataclass
-            messages.append({"sender": getattr(m, "sender", "unknown"), "payload": getattr(m, "payload", {})})
+            messages.append(
+                {
+                    "sender": getattr(m, "sender", "unknown"),
+                    "payload": getattr(m, "payload", {}),
+                }
+            )
 
         focus_serialized = []
         for r in focus:
             if hasattr(r, "asset"):
-                focus_serialized.append({"asset": r.asset, "score": r.score, "bucket": r.bucket, "notes": getattr(r, "notes", "")})
+                focus_serialized.append(
+                    {
+                        "asset": r.asset,
+                        "score": r.score,
+                        "bucket": r.bucket,
+                        "notes": getattr(r, "notes", ""),
+                    }
+                )
             else:
-                focus_serialized.append({
-                    "asset": r.get("asset") or r.get("Asset"),
-                    "score": r.get("score") or r.get("Score"),
-                    "bucket": r.get("bucket") or r.get("Bucket"),
-                    "notes": r.get("notes") or r.get("Notes", ""),
-                })
+                focus_serialized.append(
+                    {
+                        "asset": r.get("asset") or r.get("Asset"),
+                        "score": r.get("score") or r.get("Score"),
+                        "bucket": r.get("bucket") or r.get("Bucket"),
+                        "notes": r.get("notes") or r.get("Notes", ""),
+                    }
+                )
 
         run_record = {
             "timestamp": datetime.utcnow().isoformat() + "Z",

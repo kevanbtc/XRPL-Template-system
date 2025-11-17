@@ -9,7 +9,7 @@ AI_SRC = ROOT / "ai" / "src"
 if str(AI_SRC) not in sys.path:
     sys.path.insert(0, str(AI_SRC))
 
-from config import Config  # type: ignore
+from config import Config  # type: ignore  # noqa: E402
 
 
 def test_policy_loading_from_config_dir():

@@ -8,8 +8,8 @@ AI_SRC = ROOT / "ai" / "src"
 if str(AI_SRC) not in sys.path:
     sys.path.insert(0, str(AI_SRC))
 
-from config import Config  # type: ignore
-from agents.risk_agent import RiskAgent  # type: ignore
+from config import Config  # type: ignore  # noqa: E402
+from agents.risk_agent import RiskAgent  # type: ignore  # noqa: E402
 
 
 def _cfg(
